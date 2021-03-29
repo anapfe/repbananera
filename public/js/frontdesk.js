@@ -12,9 +12,9 @@ window.addEventListener('load', function() {
       hamburg.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
     };
   };
-  //hamburguesa -end
+  // fin hamburguesa
 
-  //scroll to top
+  //inicio scroll to top
   var backTop = document.querySelector('#backTop');
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function() {
@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-  // scroll to top -end-------------------------------------------
+  // fin scroll to top -------------------------------------------
 
   // inicio project caption-------------------------------------------
   var projectCaption = document.querySelectorAll('.project-caption');

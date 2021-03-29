@@ -52,16 +52,18 @@
         <div class="cajitas-form">
           <label class="form-label">Etiquetas</label>
           @foreach ($tags as $tag)
-            <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
-            @if (isset($etiquetas))
-              @foreach ($etiquetas as $etiqueta)
-                @if ($tag->es_name === $etiqueta->es_name)
-                  checked
-                @endif
-              @endforeach
-            @endif
-            >
-            <label for="{{ $tag->es_name }}" class="tag-text">{{$tag->es_name}}</label>
+            <div class="">
+              <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
+              @if (isset($etiquetas))
+                @foreach ($etiquetas as $etiqueta)
+                  @if ($tag->es_name === $etiqueta->es_name)
+                    checked
+                  @endif
+                @endforeach
+              @endif
+              >
+              <label for="{{ $tag->es_name }}" class="tag-text">{{$tag->es_name}}</label>  
+            </div>
           @endforeach
         </div>
 

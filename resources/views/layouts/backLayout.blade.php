@@ -27,9 +27,9 @@
       <img class="logo-mobile" src="{{asset('images/logo-responsive.png')}}" alt="">
       <img class="logo-desktop" src="{{asset('images/logo.png')}}" alt="">
     </a>
-    <div class="adminTitle">
-      <ul class="adminItem">
-        @if ((Auth::user()->name == 'admin'))
+    <div class="userTitle">
+      <ul class="userItem">
+        @if (Auth::check())
           {{-- <li>Hola {{ Auth::user()->name }}</li> --}}
           <li>
             <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -50,9 +50,9 @@ class TagsController extends Controller
     $request->validate($rules, $messages);
 
     $tag = Tag::create([
-      "es_name" => $request->input('es_name'),
-      "en_name" => $request->input('en_name'),
-      "cat_name" => $request->input('cat_name')
+      "es_name" => strolower($request->input('es_name')),
+      "en_name" => strolower($request->input('en_name')),
+      "cat_name" => strolower($request->input('cat_name'))
     ]);
     $tag->save();
     return redirect('admin/etiquetas');

@@ -26,7 +26,7 @@ class HomeController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
-  public function showHome(Request $request)
+  public function getHome(Request $request)
   {
     //filtro de proyectos
     $request->session()->put('tag', $request
@@ -67,7 +67,7 @@ class HomeController extends Controller
 
 
   //esta funcion está porque ajax() no valida true
-  public function getContent(Request $request) {
+  public function getProjects(Request $request) {
 
     $request->session()->put('tag', $request
     ->has('tag') ? $request->get('tag') : ($request->session()

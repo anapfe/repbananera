@@ -44,11 +44,6 @@ table {
 
 /* css propio */
 
-input:focus, textarea:focus, select:focus{
-  outline: none;
-  background-color: rgb(228, 228, 228);
-}
-
 body {
   width: 100%;
   margin: 0 auto;
@@ -69,6 +64,13 @@ header {
   padding-top: 0;
   display: flex;
   justify-content: space-between;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  background-color: rgb(240, 240, 240);
+}
+input {
+  color: rgb(113, 113, 113);
 }
 .site {
   padding-top: 13px;
@@ -102,7 +104,7 @@ a {
   max-width: 1180px;
 }
 .errors {
-  color: red;
+  color: coral;
   font-weight: 500;
   font-size: 0.9em;
   line-height: 2em;
@@ -111,15 +113,19 @@ a {
 .left-nav {
   width: 160px;
 }
-.adminItem {
+.userItem {
   font-size: 20px;
-  color: coral;
+  color: black;
   font-weight: bold;
 }
-.adminItem a:hover {
+.userItem a {
   color: black;
+  text-transform: lowercase;
 }
-.adminItem i {
+.userItem a:hover {
+  color: grey;
+}
+.userItem i {
   margin-left: 5px;
 }
 .menu {
@@ -271,24 +277,22 @@ input[type="checkbox"] {
   width: 100%;
 }
 .btn {
-  padding: 5px 20px;
-  background-color: coral;
-  color: white;
+  padding: 15px 20px;
+  background-color: #ffe3c6;
+  color: #ff713c;
   text-transform: uppercase;
   margin-right: 30px;
   cursor: pointer;
 }
-
+.btn:hover {
+  background-color: #ffd9b2;
+}
 .neg {
-  background-color: darkgrey;
-  color: white;
+  background-color: white;
+  color: #ff713c;
 }
 .neg a {
   color: white;
-}
-
-.btn:hover {
-  background-color: black;
 }
 .controls {
   display: flex;
@@ -467,7 +471,7 @@ table td {
   color: grey;
 }
 .edit:hover {
-  color: rgb(31, 156, 0);
+  color: rgb(89, 203, 27) ;
 }
 .delete:hover {
   color: red;

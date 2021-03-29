@@ -18,6 +18,8 @@ class TagsTableSeeder extends Seeder
       3 => ['lettering', 'lettering', 'lettering'],
       4 => ['comunicación', 'communication',
       'comunicació'],
+      5 => ['fotografía', "photography", "fotografia" ],
+      6 => ['tipografía', 'tipography', "tipografia"],
     ];
 
     foreach ($tags as $tag => $props) {
