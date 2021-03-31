@@ -130,6 +130,7 @@ class ProjectsController extends Controller
 
   // guardar proyecto
   public function storeProject(Request $request) {
+
     $rules = [
       "title" => "required",
       "year" => "required|numeric",

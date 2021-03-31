@@ -209,7 +209,7 @@ a {
 }
 .input-div {
   margin-bottom: 20px;
-  display: inline-block;
+  display: inline-grid;
   width: 600px;
 }
 .div-right, .div-left {
@@ -240,11 +240,17 @@ a {
   width: 100%;
   display: block;
 }
+.tags {
+
+}
+.tag {
+
+}
 input[type="checkbox"] {
   margin-right: 2px;
 }
 .tag-text {
-  color: coral;
+  color: black;
   margin-right: 15px;
 }
 .input-project {
@@ -271,17 +277,18 @@ input[type="checkbox"] {
   width: 100%;
   border: 1px solid grey;
   height: 25px;
+  padding-bottom: 10px;
 }
 .cajitas-form {
   margin-bottom: 40px;
   width: 100%;
 }
 .btn {
-  padding: 15px 20px;
+  padding: 8px 20px;
   background-color: #ffe3c6;
   color: #ff713c;
   text-transform: uppercase;
-  margin-right: 30px;
+  margin-right: 20px;
   cursor: pointer;
 }
 .btn:hover {

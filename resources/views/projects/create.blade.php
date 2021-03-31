@@ -7,9 +7,11 @@
     </div>
     <div class="main-body">
       <form class="form-project" action="/admin/proyecto_nuevo" method="POST" enctype="multipart/form-data">
-        {{ csrf_field() }}
+        @csrf
 
         <div class="cajitas-form">
+
+          {{-- TITULO  --}}
           <div class="input-div {{ $errors->has('title') ? ' has-error' : '' }}" id="title">
             <label class="form-label" for="title">Titulo</label>
             <input class="input-project" type="text" name="title" value="{{ old('title') }}" autofocus>
@@ -19,12 +21,17 @@
               </span>
             @endif
           </div>
+          {{-- AÑO --}}
           <div class="input-div {{ $errors->has('year') ? ' has-error' : '' }}" id="year">
             <label class="form-label" for="year">Año</label>
             <select class="input-project" name="year">
-              <option value="{{ old('year') }}">Seleccionar</option>
+              <option>Seleccionar</option>
               @for ($i=2005; $i <= date("Y"); $i++)
-                <option class="" value="{{$i}}">{{$i}}</option>
+                @if (old("year") == $i)
+                  <option class="" value="{{$i}}" selected>{{$i}}</option>
+                @else
+                  <option class="" value="{{$i}}">{{$i}}</option>
+                @endif
               @endfor
             </select>
             @if ($errors->has('year'))
@@ -33,6 +40,7 @@
               </span>
             @endif
           </div>
+          {{-- CLIENTE --}}
           <div class="input-div {{ $errors->has('client') ? ' has-error' : '' }}" id="client">
             <label class="form-label" for="client">Cliente</label>
             <input class="input-project" type="text" name="client" value="{{ old('client') }}">
@@ -42,13 +50,14 @@
               </span>
             @endif
           </div>
+
         </div>
 
         <div class="cajitas-form">
           {{-- descripción en español --}}
           <div class="input-div {{ $errors->has('es_description') ? ' has-error' : '' }}" id="es_description">
             <label class="form-label" for="es_description">Descripción ES</label>
-            <textarea class="input-textarea" name="es_description" value="{{ old('es_description') }}"></textarea>
+            <textarea class="input-textarea" name="es_description">{{ old('es_description') }}</textarea>
             @if ($errors->has('es_description'))
               <span class="errors">
                 <strong>{{ $errors->first('es_description') }}</strong>
@@ -58,7 +67,7 @@
           {{-- descripción en ingles  --}}
           <div class="input-div {{ $errors->has('en_description') ? ' has-error' : '' }}" id="en_description">
             <label class="form-label" for="en_description">Descripción EN</label>
-            <textarea class="input-textarea" name="en_description" value="{{ old('en_description') }}"></textarea>
+            <textarea class="input-textarea" name="en_description">{{ old('en_description') }}</textarea>
             @if ($errors->has('en_description'))
               <span class="errors">
                 <strong>{{ $errors->first('en_description') }}</strong>
@@ -68,7 +77,7 @@
           {{-- descripción en catalan --}}
           <div class="input-div {{ $errors->has('es_description') ? ' has-error' : '' }}" id="cat_description">
             <label class="form-label" for="cat_description">Descripción CAT</label>
-            <textarea class="input-textarea" name="cat_description" value="{{ old('cat_description') }}"></textarea>
+            <textarea class="input-textarea" name="cat_description">{{ old("cat_description") }}</textarea>
             @if ($errors->has('cat_description'))
               <span class="errors">
                 <strong>{{ $errors->first('cat_description') }}</strong>
@@ -79,12 +88,22 @@
         {{-- tags --}}
         <div class="cajitas-form tags-div {{ $errors->has('tags') ? ' has-error' : '' }}">
           <label class="form-label">Etiquetas</label>
-          @foreach ($tags as $tag)
-            <input type="checkbox" name="tags[]" value="{{$tag->id}}" id="{{ $tag->es_name }}">
-            <label for="{{ $tag->es_name }}" class="tag-text">
-              {{$tag->es_name}}
-            </label>
-          @endforeach
+          <div class="tags">
+
+
+
+            @foreach ($tags as $tag)
+              <div class="tag">
+                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
+                @if (is_array(old('tags')) && in_array($tag->id, old('tags')))
+                  checked
+                @endif>
+                <label for="{{ $tag->es_name }}" class="tag-text">
+                  {{ $tag->es_name }}
+                </label>
+              </div>
+            @endforeach
+          </div>
           @if ($errors->has('tags'))
             <span class="errors">
               <strong>{{ $errors->first('tags') }}</strong>

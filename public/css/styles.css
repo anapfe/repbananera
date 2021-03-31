@@ -85,7 +85,7 @@ h4 {
 }
 input:focus, textarea:focus, select:focus{
   outline: none;
-  background-color: rgb(153, 153, 153);
+  background-color: rgb(240, 240, 240);
 }
 .logo-mobile {
   display: block;
@@ -426,7 +426,7 @@ footer {
   footer {
     text-align: center;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 15px;
   }
   .project-data {
     display: flex;
@@ -492,6 +492,7 @@ footer {
   }
   .form-label {
     color: black;
+    padding-bottom: 8px;
     display: block;
   }
   .input {
@@ -506,7 +507,14 @@ footer {
   .rememberme {
     color: coral;
     font-size: 15px;
-    margin-top: 15px;
+    margin: 15px 0;
+    display: flex;
+  }
+  .rememberme input {
+    margin: 0 6px 0 0;
+  }
+  .rememberme label {
+    margin-top: -7px;
   }
   .login-foot {
     display: flex;
@@ -515,10 +523,11 @@ footer {
   .btn {
     padding: 15px 20px;
     background-color: #ffe3c6;
-    color: #ff713c;
+    color: coral;
     text-transform: uppercase;
     margin-right: 30px;
     cursor: pointer;
+    outline: none;
   }
   .btn:hover {
     background-color: #ffd9b2;
@@ -533,9 +542,6 @@ footer {
   .help-block {
     font-size: 14px;
     color: coral;
-  }
-  textarea:focus, input:focus{
-    outline: none;
   }
 
   /*fin login form-------------------------------------- */
