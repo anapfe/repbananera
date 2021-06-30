@@ -497,12 +497,22 @@ footer {
   }
   .input {
     padding-bottom: 10px;
+    position: relative;
   }
   .input-login {
     width: 100%;
     border: 1px solid coral;
     height: 40px;
     padding: 10px;
+  }
+  .fa-eye, .fa-eye-slash {
+    position: absolute;
+    right: 10px;
+    top: 45px;
+    color: grey;
+  }
+  .fa-eye:hover, .fa-eye-slash:hover {
+    cursor: pointer;
   }
   .rememberme {
     color: coral;
@@ -521,9 +531,9 @@ footer {
     justify-content: space-between;
   }
   .btn {
-    padding: 15px 20px;
-    background-color: #ffe3c6;
-    color: coral;
+    padding: 10px 15px;
+    background-color: coral;
+    color: white;
     text-transform: uppercase;
     margin-right: 30px;
     cursor: pointer;

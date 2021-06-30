@@ -86,4 +86,28 @@ window.addEventListener('load', function() {
   });
   // fin masonry ----------------------------------------------------
 
+  // ojito login
+  try {
+
+    var togglePassBtn = document.querySelector('#eye');
+
+    function togglePass() {
+      var passInput = document.querySelector('#password');
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        togglePassBtn.className = 'far fa-eye-slash';
+      } else {
+        passInput.type = "password";
+        togglePassBtn.className = 'far fa-eye';
+      }
+    }
+
+    togglePassBtn.onclick = togglePass;
+
+
+
+  } catch {
+
+  }
+
 });

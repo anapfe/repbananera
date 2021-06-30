@@ -23,6 +23,7 @@
           <div class="input password {{ $errors->has('password') ? ' has-error' : '' }}">
             <label class="form-label" for="password">{{ __('Contraseña') }}</label>
             <input class="input-login" type="password" name="password" id="password" value="{{ old('password') }}" autofocus>
+            <i id="eye" class="far fa-eye" ></i>
             @if ($errors->has('password'))
               <span class="help-block">
                 <strong>{{ $errors->first('password') }}</strong>
