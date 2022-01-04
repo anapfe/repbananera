@@ -62,7 +62,7 @@
                 @endforeach
               @endif
               >
-              <label for="{{ $tag->es_name }}" class="tag-text">{{$tag->es_name}}</label>  
+              <label for="{{ $tag->es_name }}" class="tag-text">{{$tag->es_name}}</label>
             </div>
           @endforeach
         </div>
@@ -78,9 +78,11 @@
 
         <div class="cajitas-form">
           <label class="form-label" for="altImg[]">Otras imagenes</label>
+          {{-- trae las imagenes guardadas --}}
           @foreach ($project->images as $image)
             <img class="edit-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
           @endforeach
+
           <div class="input-div">
             <input class="upload-file" type="file" name="altImg[]">
           </div>
@@ -101,7 +103,7 @@
 
       <div class="input">
         <button class="btn" type="submit" name="button">Actualizar</button>
-        <a href="/admin/etiquetas" class="btn neg" type="cancel" name="button">Cancelar</a>
+        <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
       </div>
     </form>
   </div>

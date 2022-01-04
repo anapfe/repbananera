@@ -26,7 +26,7 @@ Route::group( [ 'middleware' =>'setlocale' ], function() {
 });
 
 // paso middleware y prefix para el backoffice
-Route::group( [ 'middleware' =>'admin' ], function() {
+Route::group( [ 'middleware' => 'admin' ], function() { // rompe
 
   // Admin
   Route::get('/admin', 'HomeController@admin');

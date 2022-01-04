@@ -37,13 +37,13 @@
 
         @if (App::isLocale('en'))
           <li class="menu-item"> <a href="/es">es</a> </li>
-          <li class="menu-item"> <a href="/cat">cat</a> </li>
+          {{-- <li class="menu-item"> <a href="/cat">cat</a> </li> --}}
         @elseif (App::isLocale('cat'))
           <li class="menu-item"> <a href="/es">es</a> </li>
           <li class="menu-item"> <a href="/en">en</a> </li>
         @else
           <li class="menu-item"> <a href="/en">en</a> </li>
-          <li class="menu-item"> <a href="/cat">cat</a> </li>
+          {{-- <li class="menu-item"> <a href="/cat">cat</a> </li> --}}
         @endif
       {{-- @auth
       <li class="menu-item"><a href="/carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>

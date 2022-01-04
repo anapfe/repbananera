@@ -16,10 +16,10 @@ class IsAdmin
   */
   public function handle($request, Closure $next)
   {
-    if (Auth::check() && Auth::user()->id == 1) {
-      return $next($request);
+    if (Auth::user() &&  Auth::user()->id == 1) {
+             return $next($request);
     }
 
-    return redirect('/');
+    return redirect('home');
   }
 }

@@ -58,45 +58,45 @@ class ProjectsController extends Controller
   // proyectos por tag
   public function listProjectsByTag($tag_name)
   {
-  //   $tag = Tag::where("es_name", "=", $tag_name)->first();
-  //   $tags = Tag::orderBy('es_name', 'asc')->get();
-  //   $projects = $tag->projects;
-  //
-  //   // $param = [
-  //   //   'tags' => $tags,
-  //   //   'projects' => $projects,
-  //   // ];
-  //
-  // //este bloque está para que si hay una petición ajax solamente vaya a los datos sin toda la info HTML que no es parseable o no es JSONEABLE
-  //   if ($request->ajax()) {
-  //     //va a los datos
-  //     return view('index', compact('posts'));
-  //   } else {
-  //     // va a la página normal
-  //     return view('ajax', compact('tag', 'tags', 'projects'));
-  //   }
+    //   $tag = Tag::where("es_name", "=", $tag_name)->first();
+    //   $tags = Tag::orderBy('es_name', 'asc')->get();
+    //   $projects = $tag->projects;
+    //
+    //   // $param = [
+    //   //   'tags' => $tags,
+    //   //   'projects' => $projects,
+    //   // ];
+    //
+    // //este bloque está para que si hay una petición ajax solamente vaya a los datos sin toda la info HTML que no es parseable o no es JSONEABLE
+    //   if ($request->ajax()) {
+    //     //va a los datos
+    //     return view('index', compact('posts'));
+    //   } else {
+    //     // va a la página normal
+    //     return view('ajax', compact('tag', 'tags', 'projects'));
+    //   }
 
   }
 
   // descripcion de proyecto para index
   public function showProject(Request $request, $slug) {
-      $project = Project::where("slug", "=", $slug)->first();
-      if ($project == null) {
-        return redirect('/error');
+    $project = Project::where("slug", "=", $slug)->first();
+    if ($project == null) {
+      return redirect('/error');
+    }
+    $project->etiquetas = "";
+    foreach ($project->tags as $key => $tag) {
+      if ( $key === 0 ) {
+        $project->etiquetas .= $tag->es_name;
+      } else {
+        $project->etiquetas .= ", " . $tag->es_name;
       }
-      $project->etiquetas = "";
-      foreach ($project->tags as $key => $tag) {
-        if ( $key === 0 ) {
-          $project->etiquetas .= $tag->es_name;
-        } else {
-          $project->etiquetas .= ", " . $tag->es_name;
-        }
-      }
+    }
 
-      $param = [
-        'project' => $project
-      ];
-      return view('projects.show', $param);
+    $param = [
+      'project' => $project
+    ];
+    return view('projects.show', $param);
   }
 
   // ir a la pag para crear proyecto
@@ -115,13 +115,17 @@ class ProjectsController extends Controller
       $image = $this->uploadPhoto($value, $project);
     }
   }
+  
+  // se suben las fotos
   public function uploadPhoto($image, $project) {
     $extension = $image->getClientOriginalExtension();
-    $path = $image->storeAs("/project_img", uniqid() . "." . $extension, 'public');
+    $name = $image->getClientOriginalName();
+    $path = $image->storeAs("/project_img", $name . "." . $extension, 'public');
     $image = Image::create([
       'path' => $path
     ]);
 
+    // asociar las fotos al proyecto
     $image->project()->associate($project);
     $image->save();
 
@@ -150,11 +154,13 @@ class ProjectsController extends Controller
 
     if ($request->has('primary_img')) {
       $extension = $request->file('primary_img')->getClientOriginalExtension();
-      $path = $request->file('primary_img')->storeAs("/project_img", uniqid() . "."  . $extension, 'public');
+      $name = $request->file('primary_img')->getClientOriginalName();
+      $path = $request->file('primary_img')->storeAs("/project_img", $name . "."  . $extension, 'public');
     } else {
       $path = "";
     }
 
+    // se crea el proyecto
     $project = Project::create([
       "title" => $request->input('title'),
       "es_description" => $request->input('es_description'),
@@ -166,6 +172,8 @@ class ProjectsController extends Controller
       "primary_img" => $path
     ]);
 
+
+    // si tiene multuples fotos
     if ($request->file('altImg') == !null) {
       $this->multiPhoto($request, $project);
     }
@@ -203,7 +211,8 @@ class ProjectsController extends Controller
 
     if ($request->has('primary_img')) {
       $extension = $request->file('primary_img')->getClientOriginalExtension();
-      $path = $request->file('primary_img')->storeAs('/project_img', uniqid() . "."  . $extension, 'public');
+      $name = $request->file('primary_img')->getClientOriginalName();
+      $path = $request->file('primary_img')->storeAs('/project_img', $name . "."  . $extension, 'public');
       $project->primary_img = $path;
     } else {
       $project->primary_img = $project->primary_img;
@@ -213,7 +222,6 @@ class ProjectsController extends Controller
     if ($request->file('altImg') == !null) {
       $this->multiPhoto($request, $project);
     }
-
     $project->tags()->sync($request->input('tags'));
     $project->save();
 
@@ -225,7 +233,7 @@ class ProjectsController extends Controller
     $project = Project::find($id);
     $project->tags()->sync([]);
     foreach($project->images as $image) {
-      // $image->project()->dissociate();
+      // $image->project()->dissasociate();
       $image->project_id = null;
       $image->save();
     }
