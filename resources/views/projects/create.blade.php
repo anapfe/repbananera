@@ -140,7 +140,7 @@
 
         <div class="input">
           <button class="btn" type="submit" name="button">Subir</button>
-          <a href="/admin/etiquetas" class="btn neg" type="cancel" name="button">Cancelar</a>
+          <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
         </div>
 
       </form>

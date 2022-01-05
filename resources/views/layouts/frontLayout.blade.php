@@ -74,7 +74,7 @@ Salir
 </body>
 
 <footer>
-  <p>© 2020. Ana Pfefferkorn. Todos los derechos reservados.</p>
+  <p>© 2021 Ana Pfefferkorn. Todos los derechos reservados.</p>
 </footer>
 
 <!-- Scripts -->
