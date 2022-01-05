@@ -220,11 +220,13 @@ a {
 }
 .edit-img {
   width: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: solid 1px lightgrey;
   margin-right: 20px;
 }
-
+/* .edit-img:hover {
+  filter: grayscale(100%);
+} */
 #title, #name {
   width: 100%;
 }
@@ -282,6 +284,23 @@ input[type="checkbox"] {
 .cajitas-form {
   margin-bottom: 40px;
   width: 100%;
+}
+#alt-imgs-box {
+  display: flex;
+}
+.alt-img-box {
+  position: relative;
+  width: 100px;
+  margin: 0 20px 0 0;
+}
+.delete-img {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  line-height: 0;
+}
+.delete-img:hover {
+  color: black;
 }
 .btn {
   padding: 8px 20px;
@@ -496,7 +515,6 @@ table td {
 .pagination > li {
   margin: 0 4px;
 }
-
 @media (min-width: 470px) {
   .header {
     height: 150px;

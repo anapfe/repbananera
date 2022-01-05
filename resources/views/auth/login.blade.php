@@ -31,9 +31,9 @@
             @endif
           </div>
           <div class="input rememberme">
-            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-            <label class="form-label">
-              recordarme
+            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <label for="remember" class="form-label remember">
+              {{ __('recordarme') }}
             </label>
           </div>
           <div class="input login-foot">

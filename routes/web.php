@@ -46,6 +46,9 @@ Route::group( [ 'middleware' => 'admin' ], function() { // rompe
     Route::get('/proyecto_eliminar/{id}', 'ProjectsController@destroyProject');
     Route::get('/buscarProyectos', 'ProjectsController@searchProjects');
 
+    //Rutas imagenes
+    Route::get('/imagen_eliminar/{projectid}/{imgid}', 'ProjectsController@destroyPhoto');
+
     // Rutas Tags
     Route::get('/etiquetas', 'TagsController@listTags');
     Route::get('/etiqueta_nueva', 'TagsController@createTag');
@@ -64,7 +67,8 @@ Route::group( [ 'middleware' => 'admin' ], function() { // rompe
     Route::post('/producto_nuevo', 'ProductsController@storeProduct');
     Route::get('/producto_modificar/{name}', 'ProductsController@editProduct');
     Route::patch('/producto_modificar/{name}', 'ProductsController@updateProduct');
-    Route::get('/eliminarProducto/{name}', 'ProductsController@destroyProduct');
+    Route::get('/producto_eliminar/{name}', 'ProductsController@destroyProduct');
+
   });
 });
 

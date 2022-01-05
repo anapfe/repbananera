@@ -35,21 +35,6 @@
         </div>
 
         <div class="cajitas-form">
-          <div class="input-div" id="es_description">
-            <label class="form-label" for="es_description">Descripción</label>
-            <textarea class="input-textarea" name="es_description" value="{{ $project->es_description }}" >{{ $project->es_description }}</textarea>
-          </div>
-          <div class="input-div" id="en_description">
-            <label class="form-label" for="en_description">Descripción EN</label>
-            <textarea class="input-textarea" name="en_description" value="{{ $project->en_description }}" >{{ $project->en_description }}</textarea>
-          </div>
-          <div class="input-div" id="cat_description">
-            <label class="form-label" for="cat_description">Descripción CAT</label>
-            <textarea class="input-textarea" name="cat_description" value="{{ $project->cat_description }}" >{{ $project->cat_description }}</textarea>
-          </div>
-        </div>
-
-        <div class="cajitas-form">
           <label class="form-label">Etiquetas</label>
           @foreach ($tags as $tag)
             <div class="">
@@ -68,21 +53,40 @@
         </div>
 
         <div class="cajitas-form">
-          <p class="form-label">Imagen Home</p>
+          <div class="input-div" id="es_description">
+            <label class="form-label" for="es_description">Descripción</label>
+            <textarea class="input-textarea" name="es_description" value="{{ $project->es_description }}" >{{ $project->es_description }}</textarea>
+          </div>
+          <div class="input-div" id="en_description">
+            <label class="form-label" for="en_description">Descripción EN</label>
+            <textarea class="input-textarea" name="en_description" value="{{ $project->en_description }}" >{{ $project->en_description }}</textarea>
+          </div>
+          <div class="input-div" id="cat_description">
+            <label class="form-label" for="cat_description">Descripción CAT</label>
+            <textarea class="input-textarea" name="cat_description" value="{{ $project->cat_description }}" >{{ $project->cat_description }}</textarea>
+          </div>
+        </div>
+
+        <div class="cajitas-form">
+          <p class="form-label">Reemplazar imagen Home</p>
           <img class="edit-img" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen Index">
           <div class="input-div">
-            <label class="form-label" for="primary_img">Reemplazar</label>
+            {{-- <label class="form-label" for="primary_img">Reemplazar</label> --}}
             <input class="upload-file" type="file" name="primary_img" value="{{ old('file') }}">
           </div>
         </div>
 
         <div class="cajitas-form">
-          <label class="form-label" for="altImg[]">Otras imagenes</label>
-          {{-- trae las imagenes guardadas --}}
-          @foreach ($project->images as $image)
-            <img class="edit-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
-          @endforeach
-
+          <label class="form-label" for="altImg[]">Reemplazar otras imagenes</label>
+          <div id="alt-imgs-box">
+            {{-- trae y pinta las imagenes guardadas --}}
+            @foreach ($project->images as $image)
+              <div class="alt-img-box">
+                <a class="delete-img" href="/admin/imagen_eliminar/{{$project->id}}/{{$image->id}}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <img class="edit-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
+              </div>
+            @endforeach
+          </div>
           <div class="input-div">
             <input class="upload-file" type="file" name="altImg[]">
           </div>
