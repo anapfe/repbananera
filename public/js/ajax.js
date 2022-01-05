@@ -58,7 +58,7 @@ function ajaxLoad( filename, content ){
       //la siguiente linea es para cuando traigo un JSON de algun lado tipo consumo de API
       // var contenido = JSON.parse(this.responseText);
       //mi codigo va a partir de acá. HACER ALGO CON LA INFO QUE VIENE
-      setTimeout(replaceContent(contenido), 4000);
+      setTimeout(replaceContent(contenido), 1000);
 
       // var loading = document.querySelector('.loading');
       projectCaption();

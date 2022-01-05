@@ -56,27 +56,26 @@ class ProjectsController extends Controller
   }
 
   // proyectos por tag
-  public function listProjectsByTag($tag_name)
-  {
-    //   $tag = Tag::where("es_name", "=", $tag_name)->first();
-    //   $tags = Tag::orderBy('es_name', 'asc')->get();
-    //   $projects = $tag->projects;
-    //
-    //   // $param = [
-    //   //   'tags' => $tags,
-    //   //   'projects' => $projects,
-    //   // ];
-    //
-    // //este bloque está para que si hay una petición ajax solamente vaya a los datos sin toda la info HTML que no es parseable o no es JSONEABLE
-    //   if ($request->ajax()) {
-    //     //va a los datos
-    //     return view('index', compact('posts'));
-    //   } else {
-    //     // va a la página normal
-    //     return view('ajax', compact('tag', 'tags', 'projects'));
-    //   }
-
-  }
+  // public function listProjectsByTag($tag_name)
+  // {
+  //   $tag = Tag::where("es_name", "=", $tag_name)->first();
+  //   $tags = Tag::orderBy('es_name', 'asc')->get();
+  //   $projects = $tag->projects;
+  //
+  //   // $param = [
+  //   //   'tags' => $tags,
+  //   //   'projects' => $projects,
+  //   // ];
+  //
+  // //este bloque está para que si hay una petición ajax solamente vaya a los datos sin toda la info HTML que no es parseable o no es JSONEABLE
+  //   if ($request->ajax()) {
+  //     //va a los datos
+  //     return view('index', compact('posts'));
+  //   } else {
+  //     // va a la página normal
+  //     return view('ajax', compact('tag', 'tags', 'projects'));
+  //   }
+  // }
 
   // ir a la pag para crear proyecto
   public function createProject() {
@@ -116,8 +115,7 @@ class ProjectsController extends Controller
     $images = $project->images;
     foreach ($images as $image) {
       if ($image->id == $image_id) {
-        // $image->delete();
-        $image->unlink();
+        $image->delete();
       }
     }
     // project()->image()->sync([]);
@@ -237,7 +235,7 @@ class ProjectsController extends Controller
 
     $project = Project::where("slug", "=", $slug)->first();
     $description = nl2br($project->es_description);
-      if ($project == null) {
+    if ($project == null) {
       return redirect('/error');
     }
     $project->etiquetas = "";

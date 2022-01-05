@@ -79,15 +79,15 @@
 
         <div class="cajitas-form">
           <label class="form-label" for="altImg[]">Reemplazar otras imagenes</label>
-          <div id="alt-imgs-box">
-            {{-- trae y pinta las imagenes guardadas --}}
-            @foreach ($project->images as $image)
-              <div class="alt-img-box">
-                <a class="delete-img" href="/admin/imagen_eliminar/{{$project->id}}/{{$image->id}}"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <img class="edit-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
-              </div>
-            @endforeach
-          </div>
+
+          {{-- @section('altImages') --}}
+            {{-- id para poder seleccionarlo desde js --}}
+            <section id="altImages">
+              {{-- nombre de la vista --}}
+              @include('/projects/altImages')
+            </section>
+          {{-- @endsection --}}
+
           <div class="input-div">
             <input class="upload-file" type="file" name="altImg[]">
           </div>
@@ -113,4 +113,8 @@
     </form>
   </div>
 </div>
+@endsection
+
+@section('js')
+  <script src="{{ asset('js/backAjax.js') }}"></script>
 @endsection

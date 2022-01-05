@@ -63,7 +63,7 @@
               <span class="year">{{ $project->year }}</span>
             </div>
             <div class="four">
-              <a class="actions show" target="_blank" href="/proyecto/{{$project->slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+              <a class="actions show" target="_blank" href="/proyectos/{{$project->slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
               <a class="actions edit" href="/admin/proyecto_modificar/{{$project->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
               <a class="actions delete" href="/admin/proyecto_eliminar/{{$project->id}}"><i class="fa fa-times" aria-hidden="true"></i></a>
               {{-- <div class="actions"><input type="checkbox" name="selectAll" class="select"></div> --}}

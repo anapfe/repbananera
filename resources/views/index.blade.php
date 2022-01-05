@@ -2,8 +2,6 @@
 
 @section('css')
 
-@endsection
-
 @section('content')
   <section id= "content">
     @include('ajax')
