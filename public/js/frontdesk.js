@@ -54,7 +54,7 @@ window.addEventListener('load', function() {
   });
   // fin project caption -----------------------------------------------
 
-  // inicio current page menu-------------------------------------------
+  // inicio current menu-------------------------------------------
   try {
     var currentUrl = window.location.href;
     var menuItem = document.querySelectorAll(".menu-item");
@@ -62,7 +62,8 @@ window.addEventListener('load', function() {
       var child = element.children[0];
       var menuUrl = child.href;
       var menuWord = child.innerHTML;
-      if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
+      // if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
+          if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
         child.classList.add('current-url');
       };
     });

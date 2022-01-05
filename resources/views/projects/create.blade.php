@@ -50,7 +50,6 @@
               </span>
             @endif
           </div>
-
         </div>
 
         <div class="cajitas-form">

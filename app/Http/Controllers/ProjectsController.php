@@ -107,7 +107,6 @@ class ProjectsController extends Controller
     // asociar las fotos al proyecto
     $image->project()->associate($project);
     $image->save();
-
     return $image;
   }
 
@@ -117,10 +116,11 @@ class ProjectsController extends Controller
     $images = $project->images;
     foreach ($images as $image) {
       if ($image->id == $image_id) {
-        $image->delete();
+        // $image->delete();
+        $image->unlink();
       }
     }
-    // $image->project()->sync([]);
+    // project()->image()->sync([]);
     return redirect()->back();
   }
 
@@ -234,8 +234,10 @@ class ProjectsController extends Controller
 
   // descripcion de proyecto para index
   public function showProject(Request $request, $slug) {
+
     $project = Project::where("slug", "=", $slug)->first();
-    if ($project == null) {
+    $description = nl2br($project->es_description);
+      if ($project == null) {
       return redirect('/error');
     }
     $project->etiquetas = "";
@@ -251,6 +253,12 @@ class ProjectsController extends Controller
       'project' => $project
     ];
     return view('projects.show', $param);
+  }
+
+  //pintar espacios en la VarnishSta
+  public function replaceSpaces($text) {
+    $newText = str_replace($text, '\r\n', 'CHAR(13)' + 'CHAR(10)');
+    return $newText;
   }
 
 

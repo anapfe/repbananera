@@ -47,7 +47,7 @@
                 @endforeach
               @endif
               >
-              <label for="{{ $tag->es_name }}" class="tag-text">{{$tag->es_name}}</label>
+              <label for="{{ $tag->es_name }}" class="tag-text">{{ $tag->es_name }}</label>
             </div>
           @endforeach
         </div>
@@ -56,6 +56,7 @@
           <div class="input-div" id="es_description">
             <label class="form-label" for="es_description">Descripción</label>
             <textarea class="input-textarea" name="es_description" value="{{ $project->es_description }}" >{{ $project->es_description }}</textarea>
+
           </div>
           <div class="input-div" id="en_description">
             <label class="form-label" for="en_description">Descripción EN</label>

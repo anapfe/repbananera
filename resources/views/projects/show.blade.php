@@ -6,14 +6,10 @@
 
   </div> --}}
   @if(isset($project->images))
-    <div class="project-images">
       @foreach ($project->images as $image)
-        @if ($loop->first)
-          <img class="primary-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
-        @endif
+        @if ($loop->first)<img class="primary-img" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen principal">@endif
       @endforeach
     @endif
-  </div>
   <div class="project-data">
     <div class="right-side">
       <h4><span class="bold">{{ trans('file.año') }}: </span>{{ $project->year }}</h4>
@@ -28,25 +24,22 @@
           {{ $project->etiquetas }}
         </h5>
       </div>
-      <div class="text">
-        @if (App::isLocale('en'))
-          {{ $project->en_description }}
-        @elseif (App::isLocale('cat'))
-          {{ $project->cat_description }}
-        @else
-          {{ $project->es_description }}
-        @endif
+      {{-- @php
+      function makeClickable($string) {
+        return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $string);
+      }
+      @endphp --}}
+        <div class="project-text">@if (App::isLocale('en')){{ $project->en_description }} @elseif (App::isLocale('cat')){{ $project->cat_description }} @else{{ $project->es_description }} @endif</div>
       </div>
     </div>
-  </div>
-  @if(isset($project->images))
-    <div class="project-images">
-      @foreach ($project->images as $image)
-        @if (!$loop->first)
-          <img class="alt-images" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
+    @if(isset($project->images))
+      <div class="project-images">
+        @foreach ($project->images as $image)
+          @if (!$loop->first)
+            <img class="alt-images" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
+          @endif
+        @endforeach
       @endif
-    @endforeach
-  @endif
-</div>
-</div>
+    </div>
+  </div>
 @endsection
