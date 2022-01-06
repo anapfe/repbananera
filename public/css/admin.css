@@ -192,9 +192,8 @@ a {
 }
 .success-login {
   width: 100%;
-  background-color: coral;
-  color: white;
-  padding: 10px;
+  color: coral;
+  font-weight: bold;
 }
 .dropdown {
   line-height: 1;

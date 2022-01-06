@@ -82,6 +82,7 @@
 @yield('content')
 </div>
 @yield('scripts')
+@yield('js')
 <script src="{{ asset( 'js/backdesk.js' ) }}"></script>
 </body>
 </html>

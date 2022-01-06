@@ -17,6 +17,7 @@ function projectCaption() {
   });
 }
 
+// la función que reemplaza el contenido
 function replaceContent(contenido) {
   var contenedor = document.querySelector('#content');
   contenedor.innerHTML = contenido;

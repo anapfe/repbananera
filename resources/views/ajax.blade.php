@@ -20,7 +20,7 @@
           <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }})">{{ $tag->cat_name}}</a>
         @else
           {{-- esta linea ejecuta la funcion ajaxLoad con los datos pasados  --}}
-          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }})">{{ $tag->es_name}}</a>
+          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }}')">{{ $tag->es_name}}</a>
         @endif
       </li>
     @endforeach

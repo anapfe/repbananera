@@ -3,7 +3,7 @@
 @section('css')
 
 @section('content')
-  <section id= "content">
+  <section id="content">
     @include('ajax')
   </section>
   <div class="loader-parent">

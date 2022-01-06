@@ -109,17 +109,34 @@ class ProjectsController extends Controller
     return $image;
   }
 
-  // borra las altImgs
-  public function destroyPhoto($project_id, $image_id) {
-    $project = Project::find($project_id);
-    $images = $project->images;
-    foreach ($images as $image) {
-      if ($image->id == $image_id) {
-        $image->delete();
-      }
-    }
+  // borra las altImgs sin ajax
+  // public function destroyPhoto($project_id, $image_id) {
+  //   $project = Project::find($project_id);
+  //   $images = $project->images;
+  //   foreach ($images as $image) {
+  //     if ($image->id == $image_id) {
+  //       $image->delete();
+  //     }
+  //   }
     // project()->image()->sync([]);
-    return redirect()->back();
+    // return redirect()->back();
+  // }
+
+  // borra las altImgs
+  public function destroyPhoto(Request $request) {
+
+    // en la request se guarda la información que pasamos por la url después de ?, los nombres de las variables sirven para acceder a los datos
+
+    $project = Project::find($request->get('project_id'));
+    $images = $project->images;
+
+    foreach ($images as $image) {
+      if ($request->get('image_id') == $image->id) {
+        $image->delete();
+        return view('altImages');
+      }
+      return redirect()->back();
+    }
   }
 
   // guardar proyecto

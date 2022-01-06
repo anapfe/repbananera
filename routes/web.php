@@ -42,11 +42,11 @@ Route::group( [ 'middleware' => 'admin' ], function() {
     Route::get('/proyecto_editar/{id}', 'ProjectsController@editProject');
     Route::patch('proyecto_editar/{id}', 'ProjectsController@updateProject');
     Route::get('/proyecto_eliminar/{id}', 'ProjectsController@destroyProject');
-    Route::get('/buscarProyectos', 'ProjectsController@searchProjects');
+    Route::get('/proyectos_buscar', 'ProjectsController@searchProjects');
 
     //Rutas imagenes
     // Route::get('/imagen_eliminar/{projectid}/{imgid}', 'ProjectsController@destroyPhoto');
-      Route::get('/imagen_eliminar/', 'ProjectsController@destroyPhoto');
+    Route::get('/imagen_eliminar/', 'ProjectsController@destroyPhoto');
 
     // Rutas Tags
     Route::get('/etiquetas', 'TagsController@listTags');
