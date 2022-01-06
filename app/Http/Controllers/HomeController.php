@@ -65,7 +65,6 @@ class HomeController extends Controller
     }
   }
 
-
   //esta funcion está porque ajax() no valida true
   public function getProjects(Request $request) {
 

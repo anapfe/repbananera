@@ -19,7 +19,6 @@ function ajaxLoad( filename, content ){
       //var contenido = JSON.parse(this.responseText);
       //mi codigo va a partir de acá. HACER ALGO CON LA INFO QUE VIENE
       setTimeout(replaceContent(altImages), 2000);
-      actualizar();
     };
   };
 

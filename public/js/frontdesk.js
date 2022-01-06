@@ -108,31 +108,35 @@ window.addEventListener('load', function() {
   } catch {
   }
 
-  // make clickeable links
-  let projectNode = document.querySelector('.project-text');
-  let projectText = projectNode.innerHTML;
+  try {
+    // make clickeable links
+    let projectNode = document.querySelector('.project-text');
+    let projectText = projectNode.innerHTML;
 
-  // projectNode.innerHTML = 'HOLA';
-  let pattern = /^((http|https|ftp):\/\/)/;
-  // verficar si tiene link
-  if(projectText.search(pattern)) {
-    // guardar el link
-    let url = projectText.substring(
-      projectText.lastIndexOf('https://'),
-      projectText.lastIndexOf('/') + 1,
-    );
-    // obtener el texto de la url
-    let urlText = url.substring(
-      url.lastIndexOf('https://') + 8,
-      url.lastIndexOf('/'),
-    );
-    // obtener el texto solo sin la url
-    let txt = projectText.replace(url, '');
-    // construir el html del a
-    let newUrl = '<a class="project-link" href="' + url + '" target="_blank">' + urlText + '</a>';
-    let newInnerHtml = txt + newUrl;
-    // modificar el inner html
-    projectNode.innerHTML = newInnerHtml;
-  };
+    // projectNode.innerHTML = 'HOLA';
+    let pattern = /^((http|https|ftp):\/\/)/;
+    // verficar si tiene link
+    if(projectText.search(pattern)) {
+      // guardar el link
+      let url = projectText.substring(
+        projectText.lastIndexOf('https://'),
+        projectText.lastIndexOf('/') + 1,
+      );
+      // obtener el texto de la url
+      let urlText = url.substring(
+        url.lastIndexOf('https://') + 8,
+        url.lastIndexOf('/'),
+      );
+      // obtener el texto solo sin la url
+      let txt = projectText.replace(url, '');
+      // construir el html del a
+      let newUrl = '<a class="project-link" href="' + url + '" target="_blank">' + urlText + '</a>';
+      let newInnerHtml = txt + newUrl;
+      // modificar el inner html
+      projectNode.innerHTML = newInnerHtml;
+    };
+  } catch {
+
+  }
 
 });

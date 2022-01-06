@@ -24,11 +24,6 @@
           {{ $project->etiquetas }}
         </h5>
       </div>
-      {{-- @php
-      function makeClickable($string) {
-        return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $string);
-      }
-      @endphp --}}
         <div class="project-text">@if (App::isLocale('en')){{ $project->en_description }}@elseif (App::isLocale('cat')){{ $project->cat_description }}@else{{ $project->es_description }}@endif</div>
       </div>
     </div>

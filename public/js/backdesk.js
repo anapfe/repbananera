@@ -26,8 +26,7 @@ window.addEventListener('load', function() {
         }
       });
     });
-  } catch(error) {
-
+  } catch {
   };
   //
   // // validacion de login
@@ -115,7 +114,6 @@ window.addEventListener('load', function() {
   //     };
   //   });
   // };
-  //
   //
   //     // validacion de carga de proyecto
   //     try {
@@ -240,5 +238,8 @@ window.addEventListener('load', function() {
       });
     };
   });
+
+
+
 
 });

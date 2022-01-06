@@ -110,8 +110,8 @@ class ProjectsController extends Controller
   }
 
   // borra las altImgs
-  public function destroyPhoto($id, $image_id) {
-    $project = Project::find($id);
+  public function destroyPhoto($project_id, $image_id) {
+    $project = Project::find($project_id);
     $images = $project->images;
     foreach ($images as $image) {
       if ($image->id == $image_id) {
@@ -125,6 +125,7 @@ class ProjectsController extends Controller
   // guardar proyecto
   public function storeProject(Request $request) {
 
+    // reglas para valida
     $rules = [
       "title" => "required",
       "year" => "required|numeric",
@@ -140,6 +141,7 @@ class ProjectsController extends Controller
       "numeric" => "El campo debe ser un número"
     ];
 
+    // validar la info según las reglas, si hay problemas se gurda en $messages
     $request->validate($rules, $messages);
 
     if ($request->has('primary_img')) {
@@ -252,13 +254,6 @@ class ProjectsController extends Controller
     ];
     return view('projects.show', $param);
   }
-
-  //pintar espacios en la VarnishSta
-  public function replaceSpaces($text) {
-    $newText = str_replace($text, '\r\n', 'CHAR(13)' + 'CHAR(10)');
-    return $newText;
-  }
-
 
   // esto no debería estar acá
   public function error404() {

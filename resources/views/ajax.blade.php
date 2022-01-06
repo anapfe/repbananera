@@ -1,4 +1,3 @@
-{{-- <div class="main"> --}}
 {{-- filtro de proyectos por tag --}}
 <div class="tag-filter">
   <ul>
@@ -16,12 +15,12 @@
     @foreach ($tags as $tag)
       <li class="tag">
         @if (App::isLocale('en'))
-          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }}')">{{ $tag->en_name}}</a>
+          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url('?tag='. $tag->es_name) }})">{{ $tag->en_name}}</a>
         @elseif (App::isLocale('cat'))
-          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }}')">{{ $tag->cat_name}}</a>
+          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }})">{{ $tag->cat_name}}</a>
         @else
           {{-- esta linea ejecuta la funcion ajaxLoad con los datos pasados  --}}
-          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }}')">{{ $tag->es_name}}</a>
+          <a class="{{request()->session()->get('tag')==$tag->es_name?'tag-selected':''}}" href="javascript:ajaxLoad('{{ url( '?tag='. $tag->es_name ) }})">{{ $tag->es_name}}</a>
         @endif
       </li>
     @endforeach
@@ -69,4 +68,3 @@
   </div>
 </div>
 {{-- END masonry de proyectos  --}}
-{{-- </div> --}}

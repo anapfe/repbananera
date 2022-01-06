@@ -39,6 +39,7 @@ function acomodar() {
   });
 };
 
+// se llama a ajaxLoad desde el href de la vista
 function ajaxLoad( filename, content ){
   content = typeof content !== 'undefined' ? content : 'content'
   var loader = document.querySelector('.loader');

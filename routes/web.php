@@ -26,18 +26,16 @@ Route::group( [ 'middleware' =>'setlocale' ], function() {
 });
 
 // paso middleware y prefix para el backoffice
-Route::group( [ 'middleware' => 'admin' ], function() { // rompe
+Route::group( [ 'middleware' => 'admin' ], function() {
 
-  // Admin
-  Route::get('/admin', 'HomeController@admin');
-
+  // Route::get('/admin', 'HomeController@admin');
   Route::prefix('admin')->group(function () {
+    Route::get('/', 'HomeController@admin');
 
     // Rutas Proyectos
     Route::get('/proyectos', 'ProjectsController@listProjects');
     Route::get('/proyectos_año', 'ProjectsController@listProjectsByYear');
     Route::get('/proyectos_cliente', 'ProjectsController@listProjectsByClient');
-
     Route::get('/proyectos_titulo', 'ProjectsController@listProjectsByTitle');
     Route::get('/proyecto_nuevo', 'ProjectsController@createProject');
     Route::post('/proyecto_nuevo', 'ProjectsController@storeProject');
@@ -47,7 +45,8 @@ Route::group( [ 'middleware' => 'admin' ], function() { // rompe
     Route::get('/buscarProyectos', 'ProjectsController@searchProjects');
 
     //Rutas imagenes
-    Route::get('/imagen_eliminar/{projectid}/{imgid}', 'ProjectsController@destroyPhoto');
+    // Route::get('/imagen_eliminar/{projectid}/{imgid}', 'ProjectsController@destroyPhoto');
+      Route::get('/imagen_eliminar/', 'ProjectsController@destroyPhoto');
 
     // Rutas Tags
     Route::get('/etiquetas', 'TagsController@listTags');
@@ -68,7 +67,6 @@ Route::group( [ 'middleware' => 'admin' ], function() { // rompe
     Route::get('/producto_modificar/{name}', 'ProductsController@editProduct');
     Route::patch('/producto_modificar/{name}', 'ProductsController@updateProduct');
     Route::get('/producto_eliminar/{name}', 'ProductsController@destroyProduct');
-
   });
 });
 
