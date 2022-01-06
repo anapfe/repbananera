@@ -41,8 +41,8 @@ Route::group( [ 'middleware' => 'admin' ], function() { // rompe
     Route::get('/proyectos_titulo', 'ProjectsController@listProjectsByTitle');
     Route::get('/proyecto_nuevo', 'ProjectsController@createProject');
     Route::post('/proyecto_nuevo', 'ProjectsController@storeProject');
-    Route::get('/proyecto_modificar/{id}', 'ProjectsController@editProject');
-    Route::patch('proyecto_modificar/{id}', 'ProjectsController@updateProject');
+    Route::get('/proyecto_editar/{id}', 'ProjectsController@editProject');
+    Route::patch('proyecto_editar/{id}', 'ProjectsController@updateProject');
     Route::get('/proyecto_eliminar/{id}', 'ProjectsController@destroyProject');
     Route::get('/buscarProyectos', 'ProjectsController@searchProjects');
 

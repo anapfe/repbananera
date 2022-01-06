@@ -334,9 +334,7 @@ border-bottom: solid black 1px;
   width: 100%;
 }
 .text {
-
 }
-
 
 /* vista proyecto ---------------------------------------------------*/
 .project-data {
@@ -361,6 +359,14 @@ border-bottom: solid black 1px;
 .project-text {
   margin: 30px 0 0 0;
   white-space: pre-wrap;
+}
+.project-text a {
+  font-weight: bold;
+  color: #f8724f;
+  display: inline;
+}
+.project-text a:hover {
+  color: black;
 }
 .bold {
   font-weight: 700;

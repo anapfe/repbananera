@@ -1,10 +1,10 @@
 window.addEventListener('load', function() {
 
   //hamburguesa
-  var btn = document.querySelector('.menu-hamburger');
+  let btn = document.querySelector('.menu-hamburger');
   btn.onclick = function() {
     document.querySelector(".menu-items").classList.toggle("show-menu");
-    var hamburg = document.querySelector('.menu-hamburger');
+    let hamburg = document.querySelector('.menu-hamburger');
 
     if ( hamburg.innerHTML.includes('<i class="fa fa-times" aria-hidden="true"></i>')) {
       hamburg.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
@@ -15,10 +15,10 @@ window.addEventListener('load', function() {
   // fin hamburguesa
 
   //inicio scroll to top
-  var backTop = document.querySelector('#backTop');
-  var prevScrollpos = window.pageYOffset;
+  let backTop = document.querySelector('#backTop');
+  let prevScrollpos = window.pageYOffset;
   window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
+    let currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       backTop.style.opacity = "0";
       backTop.style.visibility = "hidden";
@@ -36,12 +36,12 @@ window.addEventListener('load', function() {
   // fin scroll to top -------------------------------------------
 
   // inicio project caption-------------------------------------------
-  var projectCaption = document.querySelectorAll('.project-caption');
+  let projectCaption = document.querySelectorAll('.project-caption');
   projectCaption.forEach(function(element)
   {
     element.addEventListener('mouseover', function() {
-      var parent = element.parentElement;
-      var child = parent.children[1];
+      let parent = element.parentElement;
+      let child = parent.children[1];
       child.classList.add('show-caption');
     });
   });
@@ -56,14 +56,14 @@ window.addEventListener('load', function() {
 
   // inicio current menu-------------------------------------------
   try {
-    var currentUrl = window.location.href;
-    var menuItem = document.querySelectorAll(".menu-item");
+    let currentUrl = window.location.href;
+    let menuItem = document.querySelectorAll(".menu-item");
     menuItem.forEach(function(element) {
-      var child = element.children[0];
-      var menuUrl = child.href;
-      var menuWord = child.innerHTML;
+      let child = element.children[0];
+      let menuUrl = child.href;
+      let menuWord = child.innerHTML;
       // if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
-          if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
+      if (currentUrl === menuUrl || currentUrl.includes(menuWord) && !currentUrl.includes('es')) {
         child.classList.add('current-url');
       };
     });
@@ -90,10 +90,10 @@ window.addEventListener('load', function() {
   // ojito login
   try {
 
-    var togglePassBtn = document.querySelector('#eye');
+    let togglePassBtn = document.querySelector('#eye');
 
     function togglePass() {
-      var passInput = document.querySelector('#password');
+      let passInput = document.querySelector('#password');
       if (passInput.type === "password") {
         passInput.type = "text";
         togglePassBtn.className = 'far fa-eye-slash';
@@ -105,10 +105,34 @@ window.addEventListener('load', function() {
 
     togglePassBtn.onclick = togglePass;
 
-
-
   } catch {
-
   }
+
+  // make clickeable links
+  let projectNode = document.querySelector('.project-text');
+  let projectText = projectNode.innerHTML;
+
+  // projectNode.innerHTML = 'HOLA';
+  let pattern = /^((http|https|ftp):\/\/)/;
+  // verficar si tiene link
+  if(projectText.search(pattern)) {
+    // guardar el link
+    let url = projectText.substring(
+      projectText.lastIndexOf('https://'),
+      projectText.lastIndexOf('/') + 1,
+    );
+    // obtener el texto de la url
+    let urlText = url.substring(
+      url.lastIndexOf('https://') + 8,
+      url.lastIndexOf('/'),
+    );
+    // obtener el texto solo sin la url
+    let txt = projectText.replace(url, '');
+    // construir el html del a
+    let newUrl = '<a class="project-link" href="' + url + '" target="_blank">' + urlText + '</a>';
+    let newInnerHtml = txt + newUrl;
+    // modificar el inner html
+    projectNode.innerHTML = newInnerHtml;
+  };
 
 });

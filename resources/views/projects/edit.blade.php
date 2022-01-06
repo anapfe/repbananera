@@ -3,10 +3,10 @@
 @section('content')
   <div class="main-wrapper">
     <div class="section-title">
-      <span>proyecto/editar</span>
+      <span>proyecto / editar</span>
     </div>
     <div class="main-body">
-      <form class="form-project" action="/admin/proyecto_modificar/{{ $project->id }}" method="POST" enctype="multipart/form-data">
+      <form class="form-project" action="/admin/proyecto_editar/{{ $project->id }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('patch') }}
 

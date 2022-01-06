@@ -3,7 +3,7 @@
 @section('content')
   <div class="main-wrapper">
     <div class="section-title">
-      <span>proyecto/nuevo</span>
+      <span>proyecto / nuevo</span>
     </div>
     <div class="main-body">
       <form class="form-project" action="/admin/proyecto_nuevo" method="POST" enctype="multipart/form-data">
