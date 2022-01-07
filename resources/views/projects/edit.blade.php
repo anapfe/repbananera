@@ -79,13 +79,11 @@
         <div class="cajitas-form">
           <label class="form-label" for="altImg[]">Reemplazar otras imagenes</label>
 
-          {{-- @section('altImages') --}}
             {{-- id para poder seleccionarlo desde js --}}
             <section id="altImages">
               {{-- nombre de la vista --}}
               @include('/projects/altImages')
             </section>
-          {{-- @endsection --}}
 
           <div class="input-div">
             <input class="upload-file" type="file" name="altImg[]" multiple>

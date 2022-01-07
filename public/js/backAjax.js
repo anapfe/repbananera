@@ -4,9 +4,12 @@ function replaceContent(contenido) {
   contenedor.innerHTML = contenido;
 }
 
+
 // se ejecuta esta función desde el href de la vista
-function ajaxLoad( filename, content ) {
+function ajaxDelete( filename, token, content ) {
   content = typeof content !== 'undefined' ? content : 'content'
+
+  console.log(token);
 
   // iniciamos ajax
   var xhttp = new XMLHttpRequest();
@@ -27,9 +30,17 @@ function ajaxLoad( filename, content ) {
 
   //define si traigo(GET) o  si llevo (POST) y a qué dirección
   // filename es lo que traemos de la vista en este caso es ajaxLoad(url)
-  xhttp.open("GET", filename);
-  //pone en request que es una petición AJAX
-  xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xhttp.open("POST", filename);
+  // pone en la request el csrf token
+  xhttp.setRequestHeader('x-csrf-token', token);
   //envia la petición
   xhttp.send();
+
+  // //define si traigo(GET) o  si llevo (POST) y a qué dirección
+  // // filename es lo que traemos de la vista en este caso es ajaxLoad(url)
+  // xhttp.open("GET", filename);
+  // //pone en request que es una petición AJAX
+  // xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  // //envia la petición
+  // xhttp.send();
 };
