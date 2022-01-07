@@ -69,10 +69,9 @@
         </div>
 
         <div class="cajitas-form">
-          <p class="form-label">Reemplazar imagen Home</p>
+          <p class="form-label">Reemplazar Imagen Principal</p>
           <img class="edit-img" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen Index">
           <div class="input-div">
-            {{-- <label class="form-label" for="primary_img">Reemplazar</label> --}}
             <input class="upload-file" type="file" name="primary_img" value="{{ old('file') }}">
           </div>
         </div>
@@ -89,19 +88,7 @@
           {{-- @endsection --}}
 
           <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
+            <input class="upload-file" type="file" name="altImg[]" multiple>
           </div>
         </div>
       </div>

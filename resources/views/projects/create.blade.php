@@ -125,16 +125,7 @@
             <input class="upload-file" type="file" name="altImg[]">
           </div>
           <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
-          </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]">
+            <input class="upload-file" type="file" name="altImg[]" multiple>
           </div>
         </div>
 

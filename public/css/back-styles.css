@@ -217,15 +217,7 @@ a {
 .div-left {
   padding-right: 60px;
 }
-.edit-img {
-  width: 100px;
-  margin-bottom: 10px;
-  border: solid 1px lightgrey;
-  margin-right: 20px;
-}
-/* .edit-img:hover {
-  filter: grayscale(100%);
-} */
+
 #title, #name {
   width: 100%;
 }
@@ -286,20 +278,39 @@ input[type="checkbox"] {
 }
 #alt-imgs-box {
   display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 .alt-img-box {
+  width: 120px;
+  border: solid 1px lightgrey;
+  margin-right: 20px;
+}
+.alt-img-box:last-child {
+  margin-right: 0px;
+}
+.alt-img-box a {
   position: relative;
-  width: 100px;
-  margin: 0 20px 0 0;
 }
-.delete-img {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  line-height: 0;
-}
-.delete-img:hover {
+.alt-img-box :hover {
   color: black;
+  filter: grayscale(100%);
+  opacity: 90%;
+}
+.alt-img-box i {
+  font-size: 30px;
+  text-align: right;
+  right: 5px;
+  z-index: 1;
+  position: absolute;
+}
+.alt-img-box img {
+  width: 100%;
+}
+.edit-img {
+  max-width: 300px;
+  border: solid 1px lightgrey;
+  margin-bottom: 20px;
 }
 .btn {
   padding: 8px 20px;
@@ -324,7 +335,7 @@ input[type="checkbox"] {
   font-size: 0.8em;
   font-weight: 400;
   color: coral;
-  font-family: roboto;
+  font-family: Roboto;
 }
 .control {
   font-weight: bold;

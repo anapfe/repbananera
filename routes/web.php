@@ -46,7 +46,7 @@ Route::group( [ 'middleware' => 'admin' ], function() {
 
     //Rutas imagenes
     // Route::get('/imagen_eliminar/{projectid}/{imgid}', 'ProjectsController@destroyPhoto');
-    Route::get('/imagen_eliminar/', 'ProjectsController@destroyPhoto');
+    Route::get('/imagen_eliminar/', 'ProjectsController@destroyImage');
 
     // Rutas Tags
     Route::get('/etiquetas', 'TagsController@listTags');

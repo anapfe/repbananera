@@ -13,7 +13,7 @@
   <title>REPÚBLICA BANANERA - estudio</title>
 
   <!-- Styles -->
-  <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/front-styles.css') }}" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Project;
 use \App\Tag;
 use \App\Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectsController extends Controller
@@ -109,7 +110,7 @@ class ProjectsController extends Controller
     return $image;
   }
 
-  // borra las altImgs sin ajax
+  // borra las altImgs sin ajax xphp
   // public function destroyPhoto($project_id, $image_id) {
   //   $project = Project::find($project_id);
   //   $images = $project->images;
@@ -118,25 +119,35 @@ class ProjectsController extends Controller
   //       $image->delete();
   //     }
   //   }
-    // project()->image()->sync([]);
-    // return redirect()->back();
+  // return redirect()->back();
   // }
 
-  // borra las altImgs
-  public function destroyPhoto(Request $request) {
+  // borra las altImgs x ajax
+  public function destroyImage(Request $request) {
 
     // en la request se guarda la información que pasamos por la url después de ?, los nombres de las variables sirven para acceder a los datos
-
     $project = Project::find($request->get('project_id'));
     $images = $project->images;
 
     foreach ($images as $image) {
       if ($request->get('image_id') == $image->id) {
+        // desvinculo la imagen del proyecto
+        $image->project_id = null;
+
+        // esto elimina la imagen de la base
+        // no se puede borrar del Storage
         $image->delete();
-        return view('altImages');
       }
-      return redirect()->back();
     }
+    // me traigo el proyecto modificado de nuevo, esto no está bien
+    $projectNew = Project::find($request->get('project_id'));
+
+    $param = [
+      'project' => $projectNew
+    ];
+
+    // si en ajax tira error de servidor 505 es porque no le pasamos los parámetros para poder pintar la vista pedazo de estúpida
+    return view('projects.altimages', $param);
   }
 
   // guardar proyecto
@@ -186,6 +197,7 @@ class ProjectsController extends Controller
       $this->multiPhoto($request, $project);
     }
 
+    // sync() se usa en relaciones many-to-many
     $project->tags()->sync($request->input('tags'));
     $project->save();
     return redirect('/admin/proyectos');
@@ -232,7 +244,7 @@ class ProjectsController extends Controller
     $project->tags()->sync($request->input('tags'));
     $project->save();
 
-    return redirect('/admin/proyectos');
+    return redirect('/admin/proyecto_editar/' . $project->id);
   }
 
   // destruir proyecto
@@ -241,9 +253,11 @@ class ProjectsController extends Controller
     $project = Project::find($id);
     $project->tags()->sync([]);
     foreach($project->images as $image) {
-      // $image->project()->dissasociate();
       $image->project_id = null;
-      $image->save();
+      $image->delete();
+
+      // $image->project_id = null;
+      // $image->save();
     }
     $project->delete();
     return redirect('/admin/proyectos');
