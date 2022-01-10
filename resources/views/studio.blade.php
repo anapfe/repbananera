@@ -22,25 +22,10 @@
           <a style="color:coral" href="https://github.com/anapfe/ "> github.com/anapfe/ </a>
         </p>
       @elseif (App::isLocale('cat'))
-        <p>
-          Hola! El meu nom és Ana Pfefferkorn, vaig néixer a Vicente Lopez el 21 de març de 1988. Sóc Dissenyadora Gràfica graduada de l'UBA en 2015 tot i que vaig començar cursant Disseny d'Indumentària i després em vaig canviar. Alguns dels meus treballs d'aquesta etapa es poden trobar a la pestanya "proyetos". També sóc Desenvolupadora Web Fullstack de Digital House des 2017. En aquest curs vaig aprendre CSS, HTML5, Javascript, a fer servir repositoris GIT, PHP, Laravel, a fer peticions AJAX, una mica de SASS, un altre poc de REACT i a treballar amb Metodologies Àgils.
-        </p>
-        <br>
-        <p>
-          Des de 2008 treball amb la meva família a Recanvis Mitre, una empresa familiar que comercialitza recanvis electrodomèstics on m'encarrego de l'atenció a client, tant per WhatsApp com per MercadoLibre, de la fotografia dels productes i de la creació de les publicacions. El 2008 vaig treballar com a recepcionista i telefonista en una productora de comercials, Banana Films, i el 2011 vaig treballar com a assistent en un estudi de Disseny gràfic, Imagenzero. També, des de fa alguns anys treball com a dissenyadora gràfica de forma freelance.
-        </p>
-        <br>
-        <p>
-          Em considero una persona inquieta i apassionada. M'agrada aprendre coses gairebé de forma constant, actualment estic aprenent Aleman i. vaig fer molts cursos com ser serigrafia artesanal, ganxet, brodat xinès, brodat clàssic enfocat a il·lustració, marbre sobre tela, serografía artesanal, fotografia i laboratori blanc i negre, revelat manual de pel·lícula color c-41, il·luminació en estudi, edició fotogràfica digital, llenceria (moldería, ús de màquines).
-        </p>
-        <br>
-        <p>
-          Aquesta pàgina la vaig fer usant referents i adaptant-la al que estava necessitant. Estic usant Laravel com Framework, CSS i Javascript escrits per mi. A la home vaig implementar peticions AJAX. Aquest i altres projectes es poden trobar en el meu github:
-          <a style="color:coral" href="https://github.com/anapfe/ ">github.com/anapfe/</a>
-        </p>
+
       @else
         <p>
-          Hola! Mi nombre es Ana Pfefferkorn, nací en Vicente Lopez el 21 de marzo de 1988. Soy Diseñadora Gráfica graduada de la UBA en 2015 aunque empecé cursando Diseño de Indumentaria y después me cambié. Algunos de mis trabajos de esa etapa se pueden encontrar en la pestaña "Proyectos". También soy Desarrolladora Web Fullstack de Digital House desde 2017. En este curso aprendí CSS, HTML5, Javascript, a usar repositorios GIT, PHP, Laravel, a hacer peticiones AJAX, un poco de SASS, otro poco de REACT y a trabajar con Metodologías Ágiles.
+          Hola! Mi nombre es Ana Pfefferkorn, nací en Vicente Lopez en 1988. Soy Diseñadora Gráfica de la UBA aunque empecé cursando Diseño de Indumentaria y después me cambié. En la pestaña "Proyectos» puse algunos de los trabajos que más me gustaron. También soy Desarrolladora Web Fullstack de DigitalHouse desde 2017. En este curso aprendí CSS, HTML5, Javascript, a usar repositorios GIT, PHP, Laravel, a hacer peticiones AJAX, un poco de SASS, otro poco de REACT y a trabajar con Metodologías Ágiles.
         </p>
         <br>
         <p>
@@ -48,16 +33,39 @@
         </p>
         <br>
         <p>
-          Me considero una persona inquieta y apasionada. Me gusta aprender cosas casi de forma constante, actualmente estoy aprendiendo Aleman y me sigo formando en desarrollo web. Hice muchos cursos como ser serigrafía artesanal, crochet, bordado chino, bordado clásico enfocado a ilustración, marmolado sobre tela, serografía artesanal, fotografía y laboratorio blanco y negro, revelado manual de película color c-41, iluminación en estudio, edición fotográfica digital, lencería (moldería, uso de máquinas).
+          Me considero una persona inquieta y apasionada. Me gusta aprender cosas casi de forma constante, actualmente estoy aprendiendo Aleman y me sigo formando en desarrollo web. Hice muchos cursos como ser serigrafía artesanal, crochet, bordado chino, bordado clásico enfocado a ilustración, marmolado sobre tela, serografía artesanal, fotografía y laboratorio blanco y negro, revelado manual de película color c-41, iluminación en estudio, edición fotográfica digital y lencería (moldería, uso de máquinas). Casi constantemente tengo side projects que me mantienen activa y creativa.
         </p>
         <br>
         <p>
           Esta página la hice usando referentes y adaptándola a lo que estaba necesitando. Estoy usando Laravel como Framework, CSS y Javascript escritos por mí. En la home implementé peticiones AJAX. Tiene un usuario administrador y uso bases de datos MySQL. Este y otros proyectos se pueden encontrar en mi github:
           <a style="color:coral" href="https://github.com/anapfe/ ">github.com/anapfe/</a>
         </p>
-      @endif
+        <br>
+        <p>
+          Elegí este nombre porque de muy chica escuché el concepto «República Bananera» e inmeditamente me dio curiosidad, no podía entender cómo juntar dos palabras buenas daba «malo». Eran dos palabras de buen significado, la república y las bananas que es una de las frutas más consumidas alrededor del globo.
+        </p>
+        <br>
+        <p>
+          Hoy por hoy el concepto se utiliza peyorativamente para referirse a los países de América Latina desde una visión totalmente primermundista en el cuál se tira un manto sobre ellos para referirse a que somos políticamente inestables, empobrecidos, atrasados, tercermundistas, corruptos y pobres*. Si nos preguntamos por qué los países «bananeros» cayeron en semejante desgracia para mí hay una sola respuesta, saqueos y desestabilizaciones propinadas a lo largo de los siglos por ese Primer Mundo que tanto admiramos.
+          </p>
+          <br>
+          <p>
+            Con recorrer un poco nuestra hermosa latinoamérica podemos ver que sí, muchas de esas heridas están abiertas y que nos cuesta horrores cerrar pero también podemos encontrar maravillas en todo lo largo y ancho de nuestra Patria Grande. Hay muchísimas riquezas como el cacao, las bananas, el petróleo, el café, y tantos otros recursos que solo se encuentran en las «repúblicas bananeras». Entonces si le sacamos el polvo primermundista al término podemos darnos cuenta que la «república banananera» es una república muy rica, y tiene algunos de los paisajes más hermosos del mundo, las cataratas más altas y grandes, los pulmones selváticos más grandes, mares critalinos y así, muchos más. Entonces ahí es donde me gusta romper. Si dejamos de permitir que nos nombren, recuperar el concepto es recuperar identidad y la república bananera es mucho más.
+          </p>
+          <br>
+          <p>
+            También me gusta el concepto porque a mí de chica me dijeron mucho «Ana Banana» y me molestaba, me hacía sentir humillada y no encontraba forma de no hacerlo. Creo que en los caminos de superación que transitamos durante la vida, lograr resignificar cosas que nos hacían daño es uno de los grandes superpoderes. Hay que abrazar los insultos y convertirlos en algo que nos sirva.
+          </p>
+          <br>
+          <p>
+            Por eso «República Bananera» es un concepto que quiero rescatar, «Ana» es un nombre que quiero rescatar y el primero incluye de alguna forma el segundo. Apropiarse de lo que nos hace daño nos hace recontruirnos. A mí me hace pensar en lo que soy, lo que hago, lo que aprendo y lo que puedo llegar a ser.
+          </p>
+          <br>
+          <p>
+            *Wikipedia
+          </p>
+        @endif
+      </div>
     </div>
-    <img class="image" src=" {{ asset('images/studio.jpg') }}" alt="studio">
-  </div>
 
-@endsection
+  @endsection
