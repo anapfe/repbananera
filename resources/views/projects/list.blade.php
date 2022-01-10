@@ -25,7 +25,7 @@
         </form>
         <select name="">
           <option value=""><a href="#">Ordenar</a></option>
-          {{-- <option value=""><a href="/admin/proyectos_eliminar">Eliminar</a></option> --}}
+          {{-- <option value="[]"><a href="/admin/proyectos_eliminar">Eliminar</a></option> --}}
           <option value=""><a href="$">Ordenar por Fecha</a></option>
           <option value=""><a href="$">Ordenar por Nombre</a></option>
         </select>

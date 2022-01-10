@@ -55,7 +55,7 @@
         <div class="cajitas-form">
           {{-- descripción en español --}}
           <div class="input-div {{ $errors->has('es_description') ? ' has-error' : '' }}" id="es_description">
-            <label class="form-label" for="es_description">Descripción ES</label>
+            <label class="form-label" for="es_description">Descripción español</label>
             <textarea class="input-textarea" name="es_description">{{ old('es_description') }}</textarea>
             @if ($errors->has('es_description'))
               <span class="errors">
@@ -65,7 +65,7 @@
           </div>
           {{-- descripción en ingles  --}}
           <div class="input-div {{ $errors->has('en_description') ? ' has-error' : '' }}" id="en_description">
-            <label class="form-label" for="en_description">Descripción EN</label>
+            <label class="form-label" for="en_description">Descripción inglés</label>
             <textarea class="input-textarea" name="en_description">{{ old('en_description') }}</textarea>
             @if ($errors->has('en_description'))
               <span class="errors">
@@ -75,7 +75,7 @@
           </div>
           {{-- descripción en catalan --}}
           <div class="input-div {{ $errors->has('es_description') ? ' has-error' : '' }}" id="cat_description">
-            <label class="form-label" for="cat_description">Descripción CAT</label>
+            <label class="form-label" for="cat_description">Descripción catalán</label>
             <textarea class="input-textarea" name="cat_description">{{ old("cat_description") }}</textarea>
             @if ($errors->has('cat_description'))
               <span class="errors">
@@ -87,19 +87,23 @@
         {{-- tags --}}
         <div class="cajitas-form tags-div {{ $errors->has('tags') ? ' has-error' : '' }}">
           <label class="form-label">Etiquetas</label>
-          <div class="tags">
-
-
-
-            @foreach ($tags as $tag)
-              <div class="tag">
-                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
-                @if (is_array(old('tags')) && in_array($tag->id, old('tags')))
-                  checked
-                @endif>
-                <label for="{{ $tag->es_name }}" class="tag-text">
-                  {{ $tag->es_name }}
-                </label>
+          <div class="tag-col">
+            @foreach ($tags as $chunk)
+              <div>
+                @foreach ($chunk as $tag)
+                  <div class="">
+                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
+                    @if (isset($etiquetas))
+                      @foreach ($etiquetas as $etiqueta)
+                        @if ($tag->es_name === $etiqueta->es_name)
+                          checked
+                        @endif
+                      @endforeach
+                    @endif
+                    >
+                    <label for="{{ $tag->es_name }}" class="tag-text">{{ $tag->es_name }}</label>
+                  </div>
+                @endforeach
               </div>
             @endforeach
           </div>
@@ -111,9 +115,19 @@
         </div>
 
         <div class="cajitas-form">
-          <div class="input-div {{ $errors->has('primary_img') ? ' has-error' : '' }}">
-            <label class="form-label" for="primary_img">Imagen home</label>
-            <input class="upload-file" type="file" name="primary_img" id="primary_img"  >
+          <div class="input-div ">
+            {{-- <label class="form-label" for="primary_img">Imagen Principal</label>
+            <input class="upload-file" type="file" name="primary_img" id="primary_img"  > --}}
+
+            <div class="input-div {{ $errors->has('primary_img') ? ' has-error' : '' }}">
+              <h2 class="form-label">Imagen Principal</h2>
+              <label class="primary-img custom-upload" for="primary_img">
+                <i class="fa fa-camera"></i>
+              </label>
+              <input class="upload-file" type="file" name="primary_img" accept="image/*" id="primary_img" >
+            </div>
+
+
             @if ($errors->has('primary_img'))
               <span class="errors">
                 <strong>{{ $errors->first('primary_img') }}</strong>
@@ -121,17 +135,21 @@
             @endif
           </div>
           <div class="input-div">
-            <label class="form-label" for="altImg[]">Otras imagenes</label>
-            <input class="upload-file" type="file" name="altImg[]">
+            <h2 class="form-label">Más imágenes</h2>
+            <label class="custom-upload" for="upload">
+              <i class="fa fa-camera"></i>
+            </label>
+            {{-- <label class="form-label" for="altImg[]">
+              <i class="fa fa-camera" aria-hidden="true"></i>
+            </label> --}}
+            <input class="upload-file" type="file" name="altImg[]" id="upload" accept="image/*" multiple>
           </div>
-          <div class="input-div">
-            <input class="upload-file" type="file" name="altImg[]" multiple>
-          </div>
+
         </div>
 
         <div class="input">
-          <button class="btn" type="submit" name="button">Subir</button>
           <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
+          <button class="btn" type="submit" name="button">Guardar</button>
         </div>
 
       </form>

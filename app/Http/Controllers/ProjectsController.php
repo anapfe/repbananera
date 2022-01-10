@@ -80,7 +80,7 @@ class ProjectsController extends Controller
 
   // ir a la pag para crear proyecto
   public function createProject() {
-    $tags = Tag::orderBy('es_name', 'asc')->get();
+    $tags = Tag::orderBy('es_name', 'asc')->get()->chunk(4);
     $param = [
       'tags' => $tags
     ];
@@ -207,7 +207,7 @@ class ProjectsController extends Controller
   public function editProject($id)
   {
     $project = Project::find($id);
-    $tags = Tag::all();
+    $tags = Tag::all()->chunk(4);
     $etiquetas = $project->tags;
     $param = [
       'project' => $project,

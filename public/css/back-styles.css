@@ -255,11 +255,12 @@ input[type="checkbox"] {
   padding-left: 8px;
 }
 .input-textarea {
-  height: 87px;
+  height: 100px;
   width: 589px;;
   border: 1px solid grey;
   font-family: roboto;
   padding: 5px;
+  resize: none;
 }
 .form-label {
   color: grey;
@@ -276,13 +277,50 @@ input[type="checkbox"] {
   margin-bottom: 40px;
   width: 100%;
 }
+.tag-col {
+  display: flex;
+}
+.flex {
+  display: flex;
+  position: relative;
+}
+.primary-img  {
+  height: 200px !important;
+  width: 200px !important;
+  position: absolute;
+}
+.custom-upload {
+  border: 1px dashed #ccc;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.custom-upload:hover {
+  box-shadow: 0px 0px 5px 0px coral;
+  border: 1px dashed coral;
+  color: coral;
+  background-color: rgba(255, 255, 255, 0.50);
+}
+.custom-upload i {
+  font-size: 30px;
+}
+.upload-file {
+  display: none;
+}
 #alt-imgs-box {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 .alt-img-box {
-  width: 120px;
+  width: 100px;
+  height: 100px;
   border: solid 1px lightgrey;
   margin-right: 20px;
 }
@@ -290,27 +328,40 @@ input[type="checkbox"] {
   margin-right: 0px;
 }
 .alt-img-box a {
-  position: relative;
-}
-.alt-img-box :hover {
   color: black;
-  filter: grayscale(100%);
-  opacity: 90%;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  height: 100px;
+  width: 100px;
+  z-index: 0;
+}
+.alt-img-box a:hover {
+  color: coral;
+  background-color: rgba(255, 255, 255, 0.50);
+  box-shadow: 0px 0px 5px 0px coral;
 }
 .alt-img-box i {
   font-size: 30px;
   text-align: right;
   right: 5px;
   z-index: 1;
-  position: absolute;
 }
 .alt-img-box img {
   width: 100%;
+  height: 100px;
+  object-fit: scale-down;
 }
-.edit-img {
-  max-width: 300px;
+.img-portada {
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
   border: solid 1px lightgrey;
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 .btn {
   padding: 8px 20px;
@@ -319,6 +370,7 @@ input[type="checkbox"] {
   text-transform: uppercase;
   margin-right: 20px;
   cursor: pointer;
+  border-radius: 5px;
 }
 .btn:hover {
   background-color: #ffd9b2;

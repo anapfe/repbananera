@@ -36,20 +36,26 @@
 
         <div class="cajitas-form">
           <label class="form-label">Etiquetas</label>
-          @foreach ($tags as $tag)
-            <div class="">
-              <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
-              @if (isset($etiquetas))
-                @foreach ($etiquetas as $etiqueta)
-                  @if ($tag->es_name === $etiqueta->es_name)
-                    checked
-                  @endif
+          <div class="tag-col">
+            @foreach ($tags as $chunk)
+              <div>
+                @foreach ($chunk as $tag)
+                  <div class="">
+                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->es_name }}"
+                    @if (isset($etiquetas))
+                      @foreach ($etiquetas as $etiqueta)
+                        @if ($tag->es_name === $etiqueta->es_name)
+                          checked
+                        @endif
+                      @endforeach
+                    @endif
+                    >
+                    <label for="{{ $tag->es_name }}" class="tag-text">{{ $tag->es_name }}</label>
+                  </div>
                 @endforeach
-              @endif
-              >
-              <label for="{{ $tag->es_name }}" class="tag-text">{{ $tag->es_name }}</label>
-            </div>
-          @endforeach
+              </div>
+            @endforeach
+          </div>
         </div>
 
         <div class="cajitas-form">
@@ -70,30 +76,35 @@
 
         <div class="cajitas-form">
           <p class="form-label">Reemplazar Imagen Principal</p>
-          <img class="edit-img" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen Index">
-          <div class="input-div">
-            <input class="upload-file" type="file" name="primary_img" value="{{ old('file') }}">
+          <div class="flex">
+            <img class="img-portada" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen Index">
+            <label class="primary-img custom-upload" for="primary_img">
+                <i class="fa fa-camera"></i>
+              </label>
+              <input class="upload-file" type="file" name="primary_img" id="primary_img" accept="image/*">
+            {{-- <div class="input-div">
+            </div> --}}
           </div>
         </div>
 
         <div class="cajitas-form">
-          <label class="form-label" for="altImg[]">Reemplazar otras imagenes</label>
+          <label class="form-label" for="altImg[]">Otras imagenes</label>
 
-            {{-- id para poder seleccionarlo desde js --}}
-            <section id="altImages">
-              {{-- nombre de la vista --}}
-              @include('/projects/altImages')
-            </section>
+          {{-- id para poder seleccionarlo desde js --}}
+          <section id="altImages" class="flex">
+            {{-- nombre de la vista --}}
+            @include('/projects/altimages')
+          </section>
 
-          <div class="input-div">
+          {{-- <div class="input-div">
             <input class="upload-file" type="file" name="altImg[]" multiple>
-          </div>
+          </div> --}}
         </div>
       </div>
 
       <div class="input">
-        <button class="btn" type="submit" name="button">Actualizar</button>
         <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
+        <button class="btn" type="submit" name="button">Actualizar</button>
       </div>
     </form>
   </div>
