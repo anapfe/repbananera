@@ -244,7 +244,7 @@ class ProjectsController extends Controller
     $project->tags()->sync($request->input('tags'));
     $project->save();
 
-    return redirect('/admin/proyecto_editar/' . $project->id);
+    return redirect('/admin/proyectos/editar/' . $project->id);
   }
 
   // destruir proyecto

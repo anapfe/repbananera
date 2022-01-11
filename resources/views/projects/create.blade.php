@@ -6,7 +6,7 @@
       <span>proyecto / nuevo</span>
     </div>
     <div class="main-body">
-      <form class="form-project" action="/admin/proyecto_nuevo" method="POST" enctype="multipart/form-data">
+      <form runat="server" class="form-project" action="/admin/proyectos/nuevo" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="cajitas-form">
@@ -26,7 +26,7 @@
             <label class="form-label" for="year">Año</label>
             <select class="input-project" name="year">
               <option>Seleccionar</option>
-              @for ($i=2005; $i <= date("Y"); $i++)
+              @for ($i=date("Y"); $i >= 2002; $i--)
                 @if (old("year") == $i)
                   <option class="" value="{{$i}}" selected>{{$i}}</option>
                 @else
@@ -115,66 +115,60 @@
         </div>
 
         <div class="cajitas-form">
-          <div class="input-div ">
-            {{-- <label class="form-label" for="primary_img">Imagen Principal</label>
-            <input class="upload-file" type="file" name="primary_img" id="primary_img"  > --}}
 
-            <div class="input-div {{ $errors->has('primary_img') ? ' has-error' : '' }}">
-              <h2 class="form-label">Imagen Principal</h2>
-              <label class="primary-img custom-upload" for="primary_img">
+          <div class="input-div {{ $errors->has('primary_img') ? ' has-error' : '' }}">
+            <p class="form-label">Imagen Principal</p>
+            <div class="flex">
+              <div style="width:200px; height:200px">
+                <img class="img-portada hidden" src="#" id="placeholder" alt="imagen principal">
+              </div>
+              <label class="primary-img custom-upload" for="primary_img" id="primary_img_label">
                 <i class="fa fa-camera"></i>
               </label>
-              <input class="upload-file" type="file" name="primary_img" accept="image/*" id="primary_img" >
+              <input class="upload-file" type="file" name="primary_img" id="primary_img" accept="image/*" value="null">
             </div>
-
-
-            @if ($errors->has('primary_img'))
-              <span class="errors">
-                <strong>{{ $errors->first('primary_img') }}</strong>
-              </span>
-            @endif
           </div>
-          <div class="input-div">
-            <h2 class="form-label">Más imágenes</h2>
-            <label class="custom-upload" for="upload">
-              <i class="fa fa-camera"></i>
-            </label>
-            {{-- <label class="form-label" for="altImg[]">
-              <i class="fa fa-camera" aria-hidden="true"></i>
-            </label> --}}
-            <input class="upload-file" type="file" name="altImg[]" id="upload" accept="image/*" multiple>
-          </div>
+          {{-- pintamos errores --}}
+          @if ($errors->has('primary_img'))
+            <span class="errors">
+              <strong>{{ $errors->first('primary_img') }}</strong>
+            </span>
+          @endif
 
         </div>
 
-        <div class="input">
-          <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
-          <button class="btn" type="submit" name="button">Guardar</button>
+        <div class="cajitas-form">
+          <label class="form-label" for="altImg[]">Otras imagenes</label>
+          <section id="altImages" class="flex">
+            {{-- nombre de la vista que tiene la info que cambia--}}
+            @include('/projects/altimages')
+          </section>
         </div>
 
-      </form>
-    </div>
+
+        {{-- <div class="cajitas-form">
+        <h2 class="form-label">Más imágenes</h2>
+        <label class="custom-upload" for="upload">
+        <i class="fa fa-camera"></i>
+      </label>
+      {{-- <label class="form-label" for="altImg[]">
+      <i class="fa fa-camera" aria-hidden="true"></i>
+    </label> --}}
+    {{-- <input class="upload-file" type="file" name="altImg[]" id="upload" accept="image/*" multiple> --}}
+    {{-- </div> --}}
   </div>
+
+  <div class="input">
+    <a href="/admin/proyectos" class="btn neg" type="cancel" name="button">Cancelar</a>
+    <button class="btn" type="submit" name="button">Guardar</button>
+  </div>
+
+</form>
+</div>
+</div>
 @endsection
 
 @section('scripts')
-  {{-- <SCRIPT LANGUAGE="JavaScript">
-
-  var time = new Date();
-  var year = time.getYear();
-  if (year < 1900) {
-  year = year + 1900;
-}
-var date = year - 20; /*change the '101' to the number of years in the past you want to show */
-var future = year + 10; /*change the '100' to the number of years in the future you want to show */
-document.writeln ("<FORM><SELECT><OPTION value=\"\">Year");
-do {
-date++;
-document.write ("<OPTION value=\"" +date+"\">" +date+ "");
-}
-while (date < future)
-document.write ("</SELECT></FORM>");
-
-</script> --}}
-
+  <script src="{{ asset('js/backAjax.js') }}"></script>
+  {{-- <script src="{{ asset('js/images.js') }}"></script> --}}
 @endsection

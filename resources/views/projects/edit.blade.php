@@ -6,7 +6,7 @@
       <span>proyecto / editar</span>
     </div>
     <div class="main-body">
-      <form class="form-project" action="/admin/proyecto_editar/{{ $project->id }}" method="POST" enctype="multipart/form-data">
+      <form class="form-project" action="/admin/proyectos/editar/{{ $project->id }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('patch') }}
 
@@ -19,7 +19,7 @@
             <label class="form-label" for="year">Año</label>
             <select class="input-project" name="year">
               <option value="{{ old('year') }}">Seleccionar</option>
-              @for ($i=2005; $i <= date("Y"); $i++)
+                @for ($i=date("Y"); $i >= 2002; $i--)
                 <option class="" value="{{$i}}"
                 @if ($i == $project->year )
                   selected
@@ -58,11 +58,12 @@
           </div>
         </div>
 
+        {{-- descripción --}}
+
         <div class="cajitas-form">
           <div class="input-div" id="es_description">
             <label class="form-label" for="es_description">Descripción</label>
             <textarea class="input-textarea" name="es_description" value="{{ $project->es_description }}" >{{ $project->es_description }}</textarea>
-
           </div>
           <div class="input-div" id="en_description">
             <label class="form-label" for="en_description">Descripción EN</label>
@@ -74,10 +75,12 @@
           </div>
         </div>
 
+        {{-- imagen principal --}}
+
         <div class="cajitas-form">
           <p class="form-label">Reemplazar Imagen Principal</p>
           <div class="flex">
-            <img class="img-portada" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen Index">
+            <img class="img-portada" src="{{ asset ( 'storage/' . $project->primary_img ) }}" alt="imagen principal">
             <label class="primary-img custom-upload" for="primary_img">
                 <i class="fa fa-camera"></i>
               </label>
@@ -113,4 +116,5 @@
 
 @section('js')
   <script src="{{ asset('js/backAjax.js') }}"></script>
+  <script src="{{ asset('js/images.js') }}"></script>
 @endsection

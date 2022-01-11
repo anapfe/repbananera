@@ -239,7 +239,18 @@ window.addEventListener('load', function() {
     };
   });
 
-
+  var primaryImg = document.querySelector('#primary_img');
+  // otra forma de poner un alertador de evento
+  primaryImg.onchange = evt => {
+    console.log(primaryImg.files);
+    const [file] = primaryImg.files;
+    if (file) {
+      const placeholder = document.querySelector('#placeholder');
+      console.log(placeholder)
+      placeholder.src = URL.createObjectURL(file);
+      placeholder.classList.remove('hidden');
+    };
+  };
 
 
 });

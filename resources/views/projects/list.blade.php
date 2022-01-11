@@ -3,23 +3,14 @@
 @section('content')
 
   <div class="main">
-    <div id="modal">
-      <div class="modalMessege">
-        <p id="pregunta">¿ELIMINAR?</p>
-        <p class="h5">No se puede deshacer.</p>
-        <div class="confirmacion">
-          <div  id="confirm" class="btn">Sí, eliminar</div>
-          <div id="decline" class="btn neg">No, volver atrás</div>
-        </div>
-      </div>
-    </div>
+  @include('modal')
     <div class="section-title">
       <span>Proyectos</span>
       <div class="controls">
         <div class="control">
-          <a href="/admin/proyecto_nuevo">+</a>
+          <a href="/admin/proyectos/nuevo">+</a>
         </div>
-        <form class="search" action="/admin/buscarProyectos" method="get">
+        <form class="search" action="/admin/proyectos/buscar" method="get">
           <input class="search-box" type="text" name="search" value="" placeholder="buscar">
           <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
@@ -64,8 +55,8 @@
             </div>
             <div class="four">
               <a class="actions show" target="_blank" href="/proyectos/{{$project->slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-              <a class="actions edit" href="/admin/proyecto_editar/{{$project->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              <a class="actions delete" href="/admin/proyecto_eliminar/{{$project->id}}"><i class="fa fa-times" aria-hidden="true"></i></a>
+              <a class="actions edit" href="/admin/proyectos/editar/{{$project->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="actions delete" href="/admin/proyectos/eliminar/{{$project->id}}"><i class="fa fa-times" aria-hidden="true"></i></a>
               {{-- <div class="actions"><input type="checkbox" name="selectAll" class="select"></div> --}}
             </div>
           </div>

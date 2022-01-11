@@ -33,40 +33,45 @@ Route::group( [ 'middleware' => 'admin' ], function() {
     Route::get('/', 'HomeController@admin');
 
     // Rutas Proyectos
-    Route::get('/proyectos', 'ProjectsController@listProjects');
-    Route::get('/proyectos_año', 'ProjectsController@listProjectsByYear');
-    Route::get('/proyectos_cliente', 'ProjectsController@listProjectsByClient');
-    Route::get('/proyectos_titulo', 'ProjectsController@listProjectsByTitle');
-    Route::get('/proyecto_nuevo', 'ProjectsController@createProject');
-    Route::post('/proyecto_nuevo', 'ProjectsController@storeProject');
-    Route::get('/proyecto_editar/{id}', 'ProjectsController@editProject');
-    Route::patch('proyecto_editar/{id}', 'ProjectsController@updateProject');
-    Route::get('/proyecto_eliminar/{id}', 'ProjectsController@destroyProject');
-    Route::get('/proyectos_buscar', 'ProjectsController@searchProjects');
-
+    Route::prefix('proyectos')->group(function () {
+      Route::get('/', 'ProjectsController@listProjects');
+      Route::get('/año', 'ProjectsController@listProjectsByYear');
+      Route::get('/cliente', 'ProjectsController@listProjectsByClient');
+      Route::get('/titulo', 'ProjectsController@listProjectsByTitle');
+      Route::get('/buscar', 'ProjectsController@searchProjects');
+      Route::get('/nuevo', 'ProjectsController@createProject');
+      Route::post('/nuevo', 'ProjectsController@storeProject');
+      Route::get('/editar/{id}', 'ProjectsController@editProject');
+      Route::patch('/editar/{id}', 'ProjectsController@updateProject');
+      Route::get('/eliminar/{id}', 'ProjectsController@destroyProject');
+    });
     //Rutas imagenes
     Route::get('/imagen_eliminar/', 'ProjectsController@destroyImage');
     Route::post('/imagen_eliminar/', 'ProjectsController@destroyImage');
 
     // Rutas Tags
-    Route::get('/etiquetas', 'TagsController@listTags');
-    Route::get('/etiqueta_nueva', 'TagsController@createTag');
-    Route::post('/etiqueta_nueva', 'TagsController@storeTag');
-    Route::get('/etiqueta_modificar/{name}', 'TagsController@editTag');
-    Route::patch('/etiqueta_modificar/{name}', 'TagsController@updateTag');
-    Route::get('/etiqueta_eliminar/{name}', 'TagsController@destroyTag');
+    Route::prefix('etiquetas')->group(function () {
+      Route::get('/', 'TagsController@listTags');
+      Route::get('/nueva', 'TagsController@createTag');
+      Route::post('/nueva', 'TagsController@storeTag');
+      Route::get('/modificar/{name}', 'TagsController@editTag');
+      Route::patch('/modificar/{name}', 'TagsController@updateTag');
+      Route::get('/eliminar/{name}', 'TagsController@destroyTag');
+    });
 
     // rutas user
     Route::get('/editar_cuenta/{id}', 'UsersController@profileEdit');
     Route::patch('/editar_cuenta/{id}', 'UsersController@update');
 
     // Rutas Products
-    Route::get('/productos', 'ProductsController@listProducts');
-    Route::get('/producto_nuevo', 'ProductsController@createProduct');
-    Route::post('/producto_nuevo', 'ProductsController@storeProduct');
-    Route::get('/producto_modificar/{name}', 'ProductsController@editProduct');
-    Route::patch('/producto_modificar/{name}', 'ProductsController@updateProduct');
-    Route::get('/producto_eliminar/{name}', 'ProductsController@destroyProduct');
+    Route::prefix('productos')->group(function () {
+      Route::get('/', 'ProductsController@listProducts');
+      Route::get('/nuevo', 'ProductsController@createProduct');
+      Route::post('/nuevo', 'ProductsController@storeProduct');
+      Route::get('/modificar/{name}', 'ProductsController@editProduct');
+      Route::patch('/modificar/{name}', 'ProductsController@updateProduct');
+      Route::get('/eliminar/{name}', 'ProductsController@destroyProduct');
+    });
   });
 });
 
