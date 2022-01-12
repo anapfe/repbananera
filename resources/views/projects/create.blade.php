@@ -122,10 +122,10 @@
               <div style="width:200px; height:200px">
                 <img class="img-portada hidden" src="#" id="placeholder" alt="imagen principal">
               </div>
-              <label class="primary-img custom-upload" for="primary_img" id="primary_img_label">
+              <label class="primary-img custom-upload" for="primaryImgUpload">
                 <i class="fa fa-camera"></i>
               </label>
-              <input class="upload-file" type="file" name="primary_img" id="primary_img" accept="image/*" value="null">
+              <input class="upload-file" type="file" name="primary_img" id="primaryImgUpload" accept="image/*" value="null">
             </div>
           </div>
           {{-- pintamos errores --}}
@@ -138,7 +138,7 @@
         </div>
 
         <div class="cajitas-form">
-          <label class="form-label" for="altImg[]">Otras imagenes</label>
+          <p class="form-label" for="altImg[]">Otras imagenes</p>
           <section id="altImages" class="flex">
             {{-- nombre de la vista que tiene la info que cambia--}}
             @include('/projects/altimages')

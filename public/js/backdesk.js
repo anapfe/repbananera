@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
   // };
 
   // select all
+
   try {
     var all = document.querySelector('#selectAll');
     all.addEventListener('click', function() {
@@ -27,7 +28,9 @@ window.addEventListener('load', function() {
       });
     });
   } catch {
-  };
+
+  }
+
   //
   // // validacion de login
   //
@@ -239,18 +242,51 @@ window.addEventListener('load', function() {
     };
   });
 
-  var primaryImg = document.querySelector('#primary_img');
-  // otra forma de poner un alertador de evento
-  primaryImg.onchange = evt => {
-    console.log(primaryImg.files);
-    const [file] = primaryImg.files;
-    if (file) {
-      const placeholder = document.querySelector('#placeholder');
-      console.log(placeholder)
-      placeholder.src = URL.createObjectURL(file);
-      placeholder.classList.remove('hidden');
+  // proyecto nuevo y editar ----------------------------------------------------
+  if (document.querySelector('#primaryImgUpload') != 'undefined') {
+    var primaryImgUpload = document.querySelector('#primaryImgUpload');
+    // otra forma de poner un alertador de evento
+    primaryImgUpload.onchange = evt => {
+      const [file] = primaryImgUpload.files;
+      if (file) {
+        const placeholder = document.querySelector('#placeholder');
+        placeholder.src = URL.createObjectURL(file);
+        console.log(URL.createObjectURL(file));
+        if (placeholder.classList.contains('hidden')) {
+          placeholder.classList.remove('hidden');
+        }
+      };
     };
   };
+
+  if (document.querySelector('#altImgsUpload') != 'undefined') {
+    var altImgsUpload = document.querySelector('#altImgsUpload');
+    altImgsUpload.onchange = evt => {
+      const files = altImgsUpload.files;
+      for (let i = 0; i < files.length; i++) {
+        let file = files.item(i);
+        let url = URL.createObjectURL(file);
+
+        var box = document.createElement('div');
+        box.classList.add('alt-img-box');
+        var link = document.createElement('a');
+        link.href = '#'
+        var cruz = document.createElement('i');
+        cruz.class = "fa fa-times";
+        link.appendChild(cruz);
+
+        // link.appendChild(cruz);
+        var img = document.createElement("img");
+        img.src = url;
+        box.appendChild(link);
+        box.appendChild(img);
+
+        var altImgsBox = document.querySelector('#alt-imgs-box');
+        altImgsBox.appendChild(box);
+      }
+    }
+  }
+
 
 
 });

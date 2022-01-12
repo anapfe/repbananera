@@ -157,7 +157,7 @@ a {
   font-weight: 700;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 .show {
   display: block;
@@ -282,7 +282,7 @@ input[type="checkbox"] {
 }
 .flex {
   display: flex;
-  position: relative;
+  /* position: relative; */
 }
 .primary-img  {
   height: 200px !important;

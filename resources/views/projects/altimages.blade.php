@@ -10,16 +10,13 @@
       </div>
     @endforeach
   @else
-    <div class="alt-img-box hidden">
-      <img src="#" alt="imagen del proyecto">
-    </div>
   @endisset
 
 </div>
 
 <div class="input-div">
-  <label class="custom-upload" for="upload">
+  <label class="custom-upload" for="altImgsUpload">
     <i class="fa fa-camera"></i>
   </label>
-  <input class="upload-file" type="file" name="altImg[]" accept="image/*" id="upload" multiple>
+  <input class="upload-file" type="file" name="altImg[]" accept="image/*" id="altImgsUpload" value="null" multiple>
 </div>
