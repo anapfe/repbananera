@@ -9,8 +9,6 @@ function replaceContent(contenido) {
 function ajaxDelete( filename, token, content ) {
   content = typeof content !== 'undefined' ? content : 'content'
 
-  console.log(token);
-
   // iniciamos ajax
   var xhttp = new XMLHttpRequest();
   // Le decimos al objeto que cuando cambia su estado (tiene 4 estados, el que nos importa es le 4to) corra la función.

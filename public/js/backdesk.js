@@ -243,7 +243,8 @@ window.addEventListener('load', function() {
   });
 
   // proyecto nuevo y editar ----------------------------------------------------
-  if (document.querySelector('#primaryImgUpload') != 'undefined') {
+
+  if (document.querySelector('#primaryImgUpload') != 'undefined' && document.querySelector('#primaryImgUpload') != null ) {
     var primaryImgUpload = document.querySelector('#primaryImgUpload');
     // otra forma de poner un alertador de evento
     primaryImgUpload.onchange = evt => {
@@ -259,7 +260,7 @@ window.addEventListener('load', function() {
     };
   };
 
-  if (document.querySelector('#altImgsUpload') != 'undefined') {
+  if (document.querySelector('#altImgsUpload') != 'undefined' && document.querySelector('#altImgsUpload') != null) {
     var altImgsUpload = document.querySelector('#altImgsUpload');
     altImgsUpload.onchange = evt => {
       const files = altImgsUpload.files;
@@ -267,8 +268,8 @@ window.addEventListener('load', function() {
         let file = files.item(i);
         let url = URL.createObjectURL(file);
 
-        var box = document.createElement('div');
-        box.classList.add('alt-img-box');
+        var newImgBox = document.createElement('div');
+        newImgBox.classList.add('alt-img-box');
         var link = document.createElement('a');
         link.href = '#'
         var cruz = document.createElement('i');
@@ -278,11 +279,13 @@ window.addEventListener('load', function() {
         // link.appendChild(cruz);
         var img = document.createElement("img");
         img.src = url;
-        box.appendChild(link);
-        box.appendChild(img);
+        newImgBox.appendChild(link);
+        newImgBox.appendChild(img);
 
-        var altImgsBox = document.querySelector('#alt-imgs-box');
-        altImgsBox.appendChild(box);
+        let altImgLast = document.querySelector('.alt-img-box:nth-last-child(2)');
+        let altImgsBox = document.querySelectorAll('.alt-img-box');
+
+        altImgLast.after(newImgBox);
       }
     }
   }

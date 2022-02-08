@@ -12,11 +12,11 @@
   @else
   @endisset
 
-</div>
+  <div class="input-div">
+    <label class="custom-upload" for="altImgsUpload">
+      <i class="fa fa-camera"></i>
+    </label>
+    <input class="upload-file" type="file" name="altImg[]" accept="image/*" id="altImgsUpload" value="null" multiple>
+  </div>
 
-<div class="input-div">
-  <label class="custom-upload" for="altImgsUpload">
-    <i class="fa fa-camera"></i>
-  </label>
-  <input class="upload-file" type="file" name="altImg[]" accept="image/*" id="altImgsUpload" value="null" multiple>
 </div>
