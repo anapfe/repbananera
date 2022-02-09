@@ -31,7 +31,7 @@
       <div class="project-images">
         @foreach ($project->images as $image)
           @if (!$loop->first)
-            <img class="alt-images" src="{{ asset ( 'storage/' . $image->path ) }}" alt="imagen">
+            <img class="alt-images" src="{{ asset ( 'storage/' . $image->path ) }}" loading="lazy" alt="imagen">
           @endif
         @endforeach
       @endif

@@ -282,10 +282,8 @@ window.addEventListener('load', function() {
         newImgBox.appendChild(link);
         newImgBox.appendChild(img);
 
-        let altImgLast = document.querySelector('.alt-img-box:nth-last-child(2)');
-        let altImgsBox = document.querySelectorAll('.alt-img-box');
-
-        altImgLast.after(newImgBox);
+        let altImgLastBox = document.querySelector('#altImgUploadBox');
+        altImgLastBox.before(newImgBox);
       }
     }
   }

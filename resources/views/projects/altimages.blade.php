@@ -12,7 +12,7 @@
   @else
   @endisset
 
-  <div class="input-div">
+  <div class="input-div" id='altImgUploadBox'>
     <label class="custom-upload" for="altImgsUpload">
       <i class="fa fa-camera"></i>
     </label>

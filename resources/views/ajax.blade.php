@@ -33,7 +33,7 @@
     @foreach ($projects as $project)
       <div class="project-card">
         <a class="project-link" href="{{ '/proyectos/' . $project->slug }}">
-          <img class="project-img" src="{{ asset( '/storage/' . $project->primary_img )}}" alt="{{ $project->title }}">
+          <img class="project-img" src="{{ asset( '/storage/' . $project->primary_img )}}" loading="lazy" alt="{{ $project->title }}">
           <div class="project-caption">
             <div>
               <div>

@@ -48,7 +48,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  width: 100%;
+  max-width: 1350px;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   padding: 30px;
