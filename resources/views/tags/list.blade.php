@@ -43,8 +43,8 @@
             <td>{{ $tag->es_name }}</td>
             <td>{{ $tag->en_name }}</td>
             <td>{{ $tag->cat_name }}</td>
-            <td class="actions"><a class="edit" href="/admin/etiqueta_modificar/{{$tag->id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-            <td class="actions"><a class="delete" href="/admin/etiqueta_eliminar/{{$tag->id}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+            <td class="actions"><a class="edit" href="/admin/etiquetas/modificar/{{$tag->id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+            <td class="actions"><a class="delete" href="/admin/etiquetas/eliminar/{{$tag->id}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
             <td class="actions"><input type="checkbox" name="selectAll" class="select"> </td>
           </tr>
         @endforeach

@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
   // fin current page menu -------------------------------------------
 
   // inicio masonry --------------------------------------------------
-  const imgs = document.querySelectorAll('.project-img');
+  let imgs = document.querySelectorAll('.project-img');
   imgs.forEach(function(e) {
     imgHeight = e.naturalHeight;
     imgWidth = e.naturalWidth;
